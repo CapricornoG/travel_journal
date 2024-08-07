@@ -2,28 +2,16 @@
 ## Project Overview
 Brief description of the project.
 ## Table of Contents
-- [Project Overview](#project-overview)
-- [User Experience (UX)](#user-experience-ux)
-  - [User Stories](#user-stories)
-  - [Site Goals](#site-goals)
-  - [Design Choices](#design-choices)
-- [Features](#features)
-  - [Existing Features](#existing-features)
-  - [Planned Features](#planned-features)
-- [Wireframes](#wireframes)
-- [Technologies Used](#technologies-used)
-- [Database Schema](#database-schema)
-- [Installation and Setup](#installation-and-setup)
-- [Deployment](#deployment)
-- [Testing](#testing)
-  - [Manual Testing](#manual-testing)
-  - [Automated Testing](#automated-testing)
-  - [Bugs and Fixes](#bugs-and-fixes)
-- [Credits](#credits)
-  - [Code](#code)
-  - [Content](#content)
-  - [Acknowledgements](#acknowledgements)
-- [License](#license)
+- [Travel Journal](#travel-journal)
+  - [Project Overview](#project-overview)
+  - [Table of Contents](#table-of-contents)
+  - [User Experience (UX)](#user-experience-ux)
+    - [User Stories](#user-stories)
+    - [Site Goals](#site-goals)
+    - [Design Choices](#design-choices)
+      - [Colour Scheme](#colour-scheme)
+      - [Typography](#typography)
+      - [Imagery](#imagery)
 
 ## User Experience (UX)
 
@@ -41,3 +29,25 @@ Brief description of the project.
 - **Enable users to upload photos with their journal entries.**
 - **Provide search and filter functionality to help users find journal entries by destination.**
 - **Ensure the application is responsive and user-friendly on all devices.**
+
+### Design Choices
+
+#### Colour Scheme
+The chosen colour scheme is intended to evoke the feelings of adventure, warmth, and relaxation associated with travel. The primary colour is turquoise, the secondary colour is coral, and the accent colour is sand.
+
+- **Primary Colour**: Turquoise (#40E0D0)
+- **Secondary Colour**: Coral (#FF7F50)
+- **Accent Colour**: Sand (#C2B280)
+
+#### Typography
+The typography aims to be clean and readable, suitable for both headings and body text, with an optional accent font for special elements.
+
+- **Heading Font**: Montserrat (sans-serif)
+- **Body Font**: Merriweather (serif)
+- **Accent Font**: Dancing Script (cursive, used sparingly)
+
+#### Imagery
+Imagery is selected to inspire and capture the essence of travel, featuring high-quality photos of landmarks, landscapes, and cultural experiences.
+
+- **Header Images**: Large, striking images of popular travel destinations.
+- **Icons**: Simple, flat icons for navigation and action buttons.
