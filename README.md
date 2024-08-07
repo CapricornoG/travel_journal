@@ -12,6 +12,7 @@ Brief description of the project.
       - [Colour Scheme](#colour-scheme)
       - [Typography](#typography)
       - [Imagery](#imagery)
+  - [Wireframes](#wireframes)
 
 ## User Experience (UX)
 
@@ -51,3 +52,6 @@ Imagery is selected to inspire and capture the essence of travel, featuring high
 
 - **Header Images**: Large, striking images of popular travel destinations.
 - **Icons**: Simple, flat icons for navigation and action buttons.
+
+## Wireframes
+- [Mobile View Wireframe](wireframes/mobile_wireframe.png)
