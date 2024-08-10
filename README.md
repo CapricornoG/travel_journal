@@ -54,4 +54,9 @@ Imagery is selected to inspire and capture the essence of travel, featuring high
 - **Icons**: Simple, flat icons for navigation and action buttons.
 
 ## Wireframes
-- [Mobile View Wireframe](wireframes/mobile_wireframe.png)
+<details>
+<summary>Mobile Wireframe</summary>
+
+![Mobile View Wireframe](wireframes/mobile_wireframe.png)
+
+</details>
