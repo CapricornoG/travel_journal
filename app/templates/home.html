@@ -1,11 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-</head>
-<body>
-    <h1>Welcome to the Travel Journal</h1>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1 class="display-4">Welcome to the Travel Journal</h1>
+    <p class="lead">This is your personal space to document and share your travel experiences.</p>
+    <hr class="my-4">
+    <p>Join now to start creating your own travel journal or log in to continue your journey.</p>
+    {% if current_user.is_authenticated %}
+    <a class="btn btn-primary btn-lg" href="{{ url_for('main.account') }}" role="button">Go to Your Account</a>
+    {% else %}
+    <a class="btn btn-primary btn-lg" href="{{ url_for('main.register') }}" role="button">Register Now</a>
+    {% endif %}
+</div>
+{% endblock %}
