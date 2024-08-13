@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 class="my-4">Your Journal Entries</h1>
+    <div class="list-group">
+        {% for entry in journal_entries %}
+            <a href="{{ url_for('main.journal_entry', entry_id=entry.id) }}" class="list-group-item list-group-item-action">
+                <h5 class="mb-1">{{ entry.title }}</h5>
+                <p class="mb-1">{{ entry.date_posted.strftime('%Y-%m-%d') }}</p>
+                <small>{{ entry.author.username }}</small>
+            </a>
+        {% endfor %}
+    </div>
+{% endblock %}

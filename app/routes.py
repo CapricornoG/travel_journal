@@ -1,8 +1,8 @@
 from flask import Blueprint, render_template, redirect, url_for, flash, request
-from flask_login import login_user, current_user, logout_user, login_required
 from app import db, bcrypt
-from app.models import User
-from app.forms import RegistrationForm, LoginForm
+from app.models import User, JournalEntry
+from app.forms import RegistrationForm, LoginForm, JournalEntryForm
+from flask_login import login_user, current_user, logout_user, login_required
 
 # Define the blueprint
 main = Blueprint('main', __name__)
@@ -25,7 +25,7 @@ def register():
         user = User(username=form.username.data, email=form.email.data, password=hashed_password)
         db.session.add(user)
         db.session.commit()
-        flash('Your account has been created!', 'success')
+        flash('Your account has been created! You can now log in', 'success')
         return redirect(url_for('main.login'))
     return render_template('register.html', title='Register', form=form)
 
@@ -38,11 +38,10 @@ def login():
         user = User.query.filter_by(email=form.email.data).first()
         if user and bcrypt.check_password_hash(user.password, form.password.data):
             login_user(user, remember=form.remember.data)
-            flash('You have been logged in!', 'success')
             next_page = request.args.get('next')
             return redirect(next_page) if next_page else redirect(url_for('main.home'))
         else:
-            flash('Login Unsuccessful. Please check email and password', 'danger')
+            flash('Login unsuccessful. Please check email and password', 'danger')
     return render_template('login.html', title='Login', form=form)
 
 @main.route('/logout')
@@ -54,3 +53,28 @@ def logout():
 @login_required
 def account():
     return render_template('account.html', title='Account')
+
+@main.route('/journal/new', methods=['GET', 'POST'])
+@login_required
+def new_journal_entry():
+    form = JournalEntryForm()
+    if form.validate_on_submit():
+        journal_entry = JournalEntry(title=form.title.data, content=form.content.data, author=current_user)
+        db.session.add(journal_entry)
+        db.session.commit()
+        flash('Your journal entry has been created!', 'success')
+        return redirect(url_for('main.home'))
+    return render_template('create_journal_entry.html', title='New Journal Entry', form=form)
+
+@main.route('/journal/entries')
+@login_required
+def journal_entries():
+    entries = JournalEntry.query.filter_by(author=current_user).all()
+    return render_template('journal_entries.html', journal_entries=entries)
+
+@main.route('/journal/entry/<int:entry_id>')
+@login_required
+def journal_entry(entry_id):
+    entry = JournalEntry.query.get_or_404(entry_id)
+    return render_template('journal_entry.html', journal_entry=entry)
+
