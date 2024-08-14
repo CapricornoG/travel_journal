@@ -10,13 +10,15 @@ main = Blueprint('main', __name__)
 @main.route('/')
 def home():
     public_entries = JournalEntry.query.filter_by(is_public=True).all()
-    return render_template('home.html', public_entries=public_entries)
+    login_form = LoginForm()
+    register_form = RegistrationForm()
+    return render_template('home.html', public_entries=public_entries, login_form=login_form, register_form=register_form)
 
 @main.route('/about')
 def about():
     return render_template('about.html')
 
-@main.route('/register', methods=['GET', 'POST'])
+@main.route('/register', methods=['POST'])
 def register():
     if current_user.is_authenticated:
         return redirect(url_for('main.home'))
@@ -27,10 +29,11 @@ def register():
         db.session.add(user)
         db.session.commit()
         flash('Your account has been created! You can now log in', 'success')
-        return redirect(url_for('main.login'))
-    return render_template('register.html', title='Register', form=form)
+        return redirect(url_for('main.home'))
+    flash('Registration unsuccessful. Please check your details and try again.', 'danger')
+    return redirect(url_for('main.home'))
 
-@main.route('/login', methods=['GET', 'POST'])
+@main.route('/login', methods=['POST'])
 def login():
     if current_user.is_authenticated:
         return redirect(url_for('main.home'))
@@ -41,9 +44,10 @@ def login():
             login_user(user, remember=form.remember.data)
             next_page = request.args.get('next')
             return redirect(next_page) if next_page else redirect(url_for('main.home'))
-        else:
-            flash('Login unsuccessful. Please check email and password', 'danger')
-    return render_template('login.html', title='Login', form=form)
+        flash('Login unsuccessful. Please check email and password', 'danger')
+    else:
+        flash('Login unsuccessful. Please check your details and try again.', 'danger')
+    return redirect(url_for('main.home'))
 
 @main.route('/logout')
 def logout():
@@ -53,7 +57,7 @@ def logout():
 @main.route('/account')
 @login_required
 def account():
-    return render_template('account.html', title='Account')
+    return render_template('account.html')
 
 @main.route('/journal/new', methods=['GET', 'POST'])
 @login_required
@@ -70,7 +74,7 @@ def new_journal_entry():
         db.session.commit()
         flash('Your journal entry has been created!', 'success')
         return redirect(url_for('main.journal_entries'))
-    return render_template('create_journal_entry.html', title='New Journal Entry', form=form)
+    return render_template('create_journal_entry.html', form=form)
 
 @main.route('/journal/entries')
 @login_required
@@ -91,4 +95,4 @@ def public_journal_entries():
 
 @login_manager.unauthorized_handler
 def unauthorized():
-    return render_template('unauthorized.html'), 403
+    return redirect(url_for('main.home'))

@@ -2,17 +2,17 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
-from flask_migrate import Migrate  # Import Flask-Migrate
+from flask_migrate import Migrate  
 from dotenv import load_dotenv
 import os
 
 db = SQLAlchemy()
 bcrypt = Bcrypt()
 login_manager = LoginManager()
-migrate = Migrate()  # Initialize Flask-Migrate
+migrate = Migrate() 
 
 def create_app():
-    load_dotenv()  # Load environment variables from .env file
+    load_dotenv()  
     app = Flask(__name__)
     app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
     app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
