@@ -1,17 +1,23 @@
 {% extends "base.html" %}
 
-{% block title %}Home{% endblock %}
-
 {% block content %}
-<div class="jumbotron">
-    <h1 class="display-4">Welcome to the Travel Journal</h1>
-    <p class="lead">This is your personal space to document and share your travel experiences.</p>
-    <hr class="my-4">
-    <p>Join now to start creating your own travel journal or log in to continue your journey.</p>
-    {% if current_user.is_authenticated %}
-    <a class="btn btn-primary btn-lg" href="{{ url_for('main.account') }}" role="button">Go to Your Account</a>
-    {% else %}
-    <a class="btn btn-primary btn-lg" href="{{ url_for('main.register') }}" role="button">Register Now</a>
-    {% endif %}
-</div>
+    <div class="content-section">
+        <h1 class="h3 mb-3 font-weight-normal">Welcome to Travel Journal</h1>
+        <p>Discover public travel journals shared by other users:</p>
+
+        {% if public_entries %}
+            <ul class="list-group">
+                {% for entry in public_entries %}
+                    <li class="list-group-item">
+                        <h5>{{ entry.title }}</h5>
+                        <p>{{ entry.content[:150] }}...</p>
+                        <small>by {{ entry.author.username }} on {{ entry.date_posted.strftime('%Y-%m-%d') }}</small>
+                        <a href="{{ url_for('main.journal_entry', entry_id=entry.id) }}" class="btn btn-link">Read More</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No public journal entries available yet.</p>
+        {% endif %}
+    </div>
 {% endblock %}

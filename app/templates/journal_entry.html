@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="content-section">
+        <h1 class="h3 mb-3 font-weight-normal">{{ journal_entry.title }}</h1>
+        <p>Posted by {{ journal_entry.author.username }} on {{ journal_entry.date_posted.strftime('%Y-%m-%d') }}</p>
+        <hr>
+        <p>{{ journal_entry.content }}</p>
+
+        {% if current_user.is_authenticated %}
+            <a href="{{ url_for('main.journal_entries') }}" class="btn btn-secondary">Back to My Entries</a>
+        {% else %}
+            <a href="{{ url_for('main.home') }}" class="btn btn-primary">Go to Home</a>
+            <a href="{{ url_for('main.login') }}" class="btn btn-secondary">Login</a>
+            <a href="{{ url_for('main.register') }}" class="btn btn-secondary">Register</a>
+        {% endif %}
+    </div>
+{% endblock %}
