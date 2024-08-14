@@ -1,14 +1,22 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1 class="my-4">Your Journal Entries</h1>
-    <div class="list-group">
-        {% for entry in journal_entries %}
-            <a href="{{ url_for('main.journal_entry', entry_id=entry.id) }}" class="list-group-item list-group-item-action">
-                <h5 class="mb-1">{{ entry.title }}</h5>
-                <p class="mb-1">{{ entry.date_posted.strftime('%Y-%m-%d') }}</p>
-                <small>{{ entry.author.username }}</small>
-            </a>
-        {% endfor %}
+    <div class="content-section">
+        <h1 class="h3 mb-3 font-weight-normal">Your Journal Entries</h1>
+
+        {% if journal_entries %}
+            <ul class="list-group">
+                {% for entry in journal_entries %}
+                    <li class="list-group-item">
+                        <a href="{{ url_for('main.journal_entry', entry_id=entry.id) }}">{{ entry.title }}</a>
+                        <small class="text-muted">on {{ entry.date_posted.strftime('%Y-%m-%d') }}</small>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>You have no journal entries yet.</p>
+        {% endif %}
+
+        <a class="btn btn-primary mt-3" href="{{ url_for('main.new_journal_entry') }}">Create New Journal Entry</a>
     </div>
 {% endblock %}

@@ -29,4 +29,5 @@ class LoginForm(FlaskForm):
 class JournalEntryForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired()])
     content = TextAreaField('Content', validators=[DataRequired()])
+    is_public = BooleanField('Make Public')  
     submit = SubmitField('Post')
