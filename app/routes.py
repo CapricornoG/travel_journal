@@ -1,8 +1,9 @@
 from flask import Blueprint, render_template, redirect, url_for, flash, request
 from app import db, bcrypt, login_manager
 from app.models import User, JournalEntry
-from app.forms import RegistrationForm, LoginForm, JournalEntryForm
+from app.forms import RegistrationForm, LoginForm, JournalEntryForm, DeleteForm
 from flask_login import login_user, current_user, logout_user, login_required
+
 
 # Define the blueprint
 main = Blueprint('main', __name__)
@@ -16,7 +17,9 @@ def home():
 
 @main.route('/about')
 def about():
-    return render_template('about.html')
+    login_form = LoginForm()
+    register_form = RegistrationForm()
+    return render_template('about.html', login_form=login_form, register_form=register_form)
 
 @main.route('/register', methods=['POST'])
 def register():
@@ -57,12 +60,16 @@ def logout():
 @main.route('/account')
 @login_required
 def account():
-    return render_template('account.html')
+    login_form = LoginForm()
+    register_form = RegistrationForm()
+    return render_template('account.html', login_form=login_form, register_form=register_form)
 
 @main.route('/journal/new', methods=['GET', 'POST'])
 @login_required
 def new_journal_entry():
     form = JournalEntryForm()
+    login_form = LoginForm()
+    register_form = RegistrationForm()
     if form.validate_on_submit():
         journal_entry = JournalEntry(
             title=form.title.data,
@@ -74,25 +81,68 @@ def new_journal_entry():
         db.session.commit()
         flash('Your journal entry has been created!', 'success')
         return redirect(url_for('main.journal_entries'))
-    return render_template('create_journal_entry.html', form=form)
-
+    return render_template('create_journal_entry.html', form=form, login_form=login_form, register_form=register_form)
 @main.route('/journal/entries')
 @login_required
 def journal_entries():
     entries = JournalEntry.query.filter_by(author=current_user).all()
-    return render_template('journal_entries.html', journal_entries=entries)
+    login_form = LoginForm()
+    register_form = RegistrationForm()
+    delete_form = DeleteForm()  
+    return render_template('journal_entries.html', journal_entries=entries, login_form=login_form, register_form=register_form, form=delete_form)
 
 @main.route('/journal/entry/<int:entry_id>')
 @login_required
 def journal_entry(entry_id):
     entry = JournalEntry.query.get_or_404(entry_id)
-    return render_template('journal_entry.html', journal_entry=entry)
+    login_form = LoginForm()
+    register_form = RegistrationForm()
+    return render_template('journal_entry.html', journal_entry=entry, login_form=login_form, register_form=register_form)
 
 @main.route('/journal/public')
 def public_journal_entries():
     entries = JournalEntry.query.filter_by(is_public=True).all()
-    return render_template('journal_entries.html', journal_entries=entries)
+    login_form = LoginForm()
+    register_form = RegistrationForm()
+    return render_template('journal_entries.html', journal_entries=entries, login_form=login_form, register_form=register_form)
 
 @login_manager.unauthorized_handler
 def unauthorized():
     return redirect(url_for('main.home'))
+@main.route('/journal/entry/<int:entry_id>/edit', methods=['GET', 'POST'])
+@login_required
+def edit_journal_entry(entry_id):
+    entry = JournalEntry.query.get_or_404(entry_id)
+    if entry.author != current_user:
+        flash('You do not have permission to edit this entry.', 'danger')
+        return redirect(url_for('main.journal_entries'))
+
+    form = JournalEntryForm()
+    login_form = LoginForm() 
+    register_form = RegistrationForm() 
+    if form.validate_on_submit():
+        entry.title = form.title.data
+        entry.content = form.content.data
+        entry.is_public = form.is_public.data
+        db.session.commit()
+        flash('Your journal entry has been updated!', 'success')
+        return redirect(url_for('main.journal_entries'))
+    elif request.method == 'GET':
+        form.title.data = entry.title
+        form.content.data = entry.content
+        form.is_public.data = entry.is_public
+
+    return render_template('edit_journal_entry.html', title='Edit Journal Entry', form=form, login_form=login_form, register_form=register_form)
+
+@main.route('/journal/entry/<int:entry_id>/delete', methods=['POST'])
+@login_required
+def delete_journal_entry(entry_id):
+    entry = JournalEntry.query.get_or_404(entry_id)
+    if entry.author != current_user:
+        flash('You do not have permission to delete this entry.', 'danger')
+        return redirect(url_for('main.journal_entries'))
+
+    db.session.delete(entry)
+    db.session.commit()
+    flash('Your journal entry has been deleted!', 'success')
+    return redirect(url_for('main.journal_entries'))

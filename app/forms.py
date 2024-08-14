@@ -31,3 +31,6 @@ class JournalEntryForm(FlaskForm):
     content = TextAreaField('Content', validators=[DataRequired()])
     is_public = BooleanField('Make Public')  
     submit = SubmitField('Post')
+
+class DeleteForm(FlaskForm):
+    submit = SubmitField('Delete')
