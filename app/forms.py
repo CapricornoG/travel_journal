@@ -33,4 +33,4 @@ class JournalEntryForm(FlaskForm):
     submit = SubmitField('Post')
 
 class DeleteForm(FlaskForm):
-    submit = SubmitField('Delete')
+    submit = SubmitField('Delete Account')
