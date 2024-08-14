@@ -10,7 +10,7 @@
                 {% for entry in public_entries %}
                     <li class="list-group-item">
                         <h5>{{ entry.title }}</h5>
-                        <p>{{ entry.content[:150] }}...</p>
+                        <p>{{ entry.content[:150] }}...</p> 
                         <small>by {{ entry.author.username }} on {{ entry.date_posted.strftime('%Y-%m-%d') }}</small>
                         <a href="{{ url_for('main.journal_entry', entry_id=entry.id) }}" class="btn btn-link">Read More</a>
                     </li>
