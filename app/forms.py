@@ -2,6 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, BooleanField, TextAreaField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 from app.models import User
+from flask_wtf.file import FileField, FileAllowed
 
 class RegistrationForm(FlaskForm):
     """Form for users to create a new account."""
@@ -49,15 +50,10 @@ class LoginForm(FlaskForm):
     submit = SubmitField('Login')
 
 class JournalEntryForm(FlaskForm):
-    """Form for creating or editing a journal entry."""
-    title = StringField(
-        'Title', 
-        validators=[DataRequired()]
-    )
-    content = TextAreaField(
-        'Content', 
-        validators=[DataRequired()]
-    )
+    """Form for creating or editing a journal entry with an optional image."""
+    title = StringField('Title', validators=[DataRequired()])
+    content = TextAreaField('Content', validators=[DataRequired()])
+    image = FileField('Upload Image', validators=[FileAllowed(['jpg', 'png'])])
     is_public = BooleanField('Make Public')
     submit = SubmitField('Post')
 
