@@ -7,17 +7,20 @@
         {% if journal_entries %}
             <ul class="list-group">
                 {% for entry in journal_entries %}
-                    <li class="list-group-item">
-                        <a href="{{ url_for('main.journal_entry', entry_id=entry.id) }}">{{ entry.title }}</a>
-                        <small class="text-muted">on {{ entry.date_posted.strftime('%Y-%m-%d') }}</small>
-                        
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <a href="{{ url_for('main.journal_entry', entry_id=entry.id) }}">{{ entry.title }}</a>
+                            <small class="text-muted">on {{ entry.date_posted.strftime('%Y-%m-%d') }}</small>
+                        </div>
+
                         <!-- Edit and Delete buttons -->
-                        <div class="float-right">
+                        <div>
                             <a href="{{ url_for('main.edit_journal_entry', entry_id=entry.id) }}" class="btn btn-sm btn-secondary">Edit</a>
                             <!-- Delete form -->
                             <form method="POST" action="{{ url_for('main.delete_journal_entry', entry_id=entry.id) }}" style="display: inline;">
+                                {{ delete_form.hidden_tag() }}
                                 <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this entry?');">Delete</button>
-                            </form>
+                            </form>                            
                         </div>
                     </li>
                 {% endfor %}
