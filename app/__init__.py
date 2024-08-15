@@ -12,7 +12,6 @@ bcrypt = Bcrypt()
 login_manager = LoginManager()
 migrate = Migrate()
 
-
 def create_app():
     """
     Factory function to create the Flask application and initialize extensions.
