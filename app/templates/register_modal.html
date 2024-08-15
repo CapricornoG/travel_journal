@@ -1,29 +1,29 @@
 <form method="POST" action="{{ url_for('main.register') }}">
     {{ form.hidden_tag() }}
     <div class="form-group">
-        {{ form.username.label(class="form-label") }}
-        {{ form.username(class="form-control") }}
+        {{ form.username.label(class_="form-label") }}
+        {{ form.username(class_="form-control", id="usernameInput", aria_describedby="usernameHelp") }}
         {% for error in form.username.errors %}
             <span class="text-danger">{{ error }}</span>
         {% endfor %}
     </div>
     <div class="form-group">
-        {{ form.email.label(class="form-label") }}
-        {{ form.email(class="form-control") }}
+        {{ form.email.label(class_="form-label") }}
+        {{ form.email(class_="form-control", id="emailInput", aria_describedby="emailHelp") }}
         {% for error in form.email.errors %}
             <span class="text-danger">{{ error }}</span>
         {% endfor %}
     </div>
     <div class="form-group">
-        {{ form.password.label(class="form-label") }}
-        {{ form.password(class="form-control") }}
+        {{ form.password.label(class_="form-label") }}
+        {{ form.password(class_="form-control", id="passwordInput") }}
         {% for error in form.password.errors %}
             <span class="text-danger">{{ error }}</span>
         {% endfor %}
     </div>
     <div class="form-group">
-        {{ form.confirm_password.label(class="form-label") }}
-        {{ form.confirm_password(class="form-control") }}
+        {{ form.confirm_password.label(class_="form-label") }}
+        {{ form.confirm_password(class_="form-control", id="confirmPasswordInput") }}
         {% for error in form.confirm_password.errors %}
             <span class="text-danger">{{ error }}</span>
         {% endfor %}
