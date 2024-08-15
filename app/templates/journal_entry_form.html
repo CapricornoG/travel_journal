@@ -2,17 +2,21 @@
 
 {% block content %}
     <div class="content-section">
-        <h1 class="h3 mb-3 font-weight-normal">New Journal Entry</h1>
+        <h1 class="h3 mb-3 font-weight-normal">
+            {% if journal_entry %}
+                Edit Journal Entry
+            {% else %}
+                New Journal Entry
+            {% endif %}
+        </h1>
         
-        <!-- Form for creating a new journal entry with image upload -->
-        <form method="POST" action="{{ url_for('main.new_journal_entry') }}" enctype="multipart/form-data">
+        <!-- Form for creating/editing journal entry with image upload -->
+        <form method="POST" action="{{ form_action }}" enctype="multipart/form-data">
             {{ form.hidden_tag() }}
             
             <div class="form-group">
                 {{ form.title.label(class="form-control-label") }}
                 {{ form.title(class="form-control form-control-lg") }}
-                
-                <!-- Error handling for the title field -->
                 {% for error in form.title.errors %}
                     <div class="alert alert-danger">{{ error }}</div>
                 {% endfor %}
@@ -21,19 +25,21 @@
             <div class="form-group">
                 {{ form.content.label(class="form-control-label") }}
                 {{ form.content(class="form-control form-control-lg", rows="5") }}
-
-                <!-- Error handling for the content field -->
                 {% for error in form.content.errors %}
                     <div class="alert alert-danger">{{ error }}</div>
                 {% endfor %}
             </div>
             
-            <!-- New Image upload field -->
+            <!-- Image Upload Section -->
             <div class="form-group">
                 {{ form.image.label(class="form-control-label") }}
                 {{ form.image(class="form-control-file") }}
-
-                <!-- Error handling for the image field -->
+                {% if journal_entry and journal_entry.image_file %}
+                    <div class="mt-2">
+                        <label>Current Image:</label><br>
+                        <img src="{{ url_for('static', filename='images/' ~ journal_entry.image_file) }}" alt="{{ journal_entry.title }}" class="img-fluid mb-3">
+                    </div>
+                {% endif %}
                 {% for error in form.image.errors %}
                     <div class="alert alert-danger">{{ error }}</div>
                 {% endfor %}
@@ -45,7 +51,7 @@
             </div>
             
             <div class="form-group">
-                {{ form.submit(class="btn btn-primary btn-lg btn-block") }}
+                <button type="submit" class="btn btn-primary btn-lg btn-block">{{ submit_button_text }}</button>
             </div>
         </form>
     </div>

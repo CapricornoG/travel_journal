@@ -10,11 +10,14 @@
                 {% for entry in public_entries %}
                     <li class="list-group-item">
                         <h5>{{ entry.title }}</h5>
-                        <p>{{ entry.content | truncate(150) }}</p> <!-- Use truncate filter for cleaner truncation -->
-                        
-                        <!-- Handle the case where entry.author might be missing -->
-                        <small>by {{ entry.author.username if entry.author else 'Unknown' }} on {{ entry.date_posted.strftime('%Y-%m-%d') }}</small>
+                        <p>{{ entry.content[:150] }}{% if entry.content|length > 150 %}...{% endif %}</p> <!-- Truncate content if it's too long -->
 
+                        <!-- Handle the case where entry.author might be missing -->
+                        <small class="text-muted">
+                            by {{ entry.author.username if entry.author else 'Unknown' }} on {{ entry.date_posted.strftime('%Y-%m-%d') }}
+                        </small>
+
+                        <!-- Read More Link -->
                         <a href="{{ url_for('main.journal_entry', entry_id=entry.id) }}" class="btn btn-link">Read More</a>
                     </li>
                 {% endfor %}

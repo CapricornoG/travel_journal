@@ -4,35 +4,28 @@ from app.models import User, JournalEntry
 from app.forms import RegistrationForm, LoginForm, JournalEntryForm, DeleteForm
 from flask_login import login_user, current_user, logout_user, login_required
 
-
 # Define the blueprint
 main = Blueprint('main', __name__)
 
+# Context processor to inject forms globally
+@main.app_context_processor
+def inject_forms():
+    return {
+        'login_form': LoginForm(),
+        'register_form': RegistrationForm()
+    }
 
 @main.route('/')
 def home():
     """Render the home page with public journal entries."""
     public_entries = JournalEntry.query.filter_by(is_public=True).all()
-    login_form = LoginForm()
-    register_form = RegistrationForm()
-    return render_template(
-        'home.html', 
-        public_entries=public_entries, 
-        login_form=login_form, 
-        register_form=register_form
-    )
+    return render_template('home.html', public_entries=public_entries)
 
 
 @main.route('/about')
 def about():
     """Render the about page."""
-    login_form = LoginForm()
-    register_form = RegistrationForm()
-    return render_template(
-        'about.html', 
-        login_form=login_form, 
-        register_form=register_form
-    )
+    return render_template('about.html')
 
 
 @main.route('/register', methods=['POST'])
@@ -43,13 +36,8 @@ def register():
 
     form = RegistrationForm()
     if form.validate_on_submit():
-        hashed_password = bcrypt.generate_password_hash(
-            form.password.data).decode('utf-8')
-        user = User(
-            username=form.username.data, 
-            email=form.email.data, 
-            password=hashed_password
-        )
+        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        user = User(username=form.username.data, email=form.email.data, password=hashed_password)
         db.session.add(user)
         db.session.commit()
         flash('Your account has been created! You can now log in', 'success')
@@ -90,14 +78,7 @@ def logout():
 def account():
     """Display account details and provide option to delete the account."""
     delete_form = DeleteForm()
-    login_form = LoginForm()
-    register_form = RegistrationForm()
-    return render_template(
-        'account.html', 
-        form=delete_form, 
-        login_form=login_form, 
-        register_form=register_form
-    )
+    return render_template('account.html', form=delete_form)
 
 
 @main.route('/account/delete', methods=['POST'])
@@ -105,7 +86,7 @@ def account():
 def delete_account():
     """Delete the current user's account."""
     user = User.query.get_or_404(current_user.id)
-
+    
     # Manually delete all associated journal entries
     JournalEntry.query.filter_by(author=user).delete()
 
@@ -120,6 +101,7 @@ def delete_account():
 @main.route('/journal/entries', methods=['GET', 'POST'])
 @login_required
 def journal_entries():
+    """List and filter journal entries."""
     search_query = request.args.get('search', '')
     filter_option = request.args.get('filter', '')
 
@@ -138,18 +120,9 @@ def journal_entries():
         query = query.filter_by(is_public=False)
 
     entries = query.all()
-
     delete_form = DeleteForm()
-    login_form = LoginForm()
-    register_form = RegistrationForm()
 
-    return render_template(
-        'journal_entries.html',
-        journal_entries=entries,
-        delete_form=delete_form,
-        login_form=login_form,
-        register_form=register_form
-    )
+    return render_template('journal_entries.html', journal_entries=entries, delete_form=delete_form)
 
 
 @main.route('/journal/entry/<int:entry_id>')
@@ -157,17 +130,9 @@ def journal_entries():
 def journal_entry(entry_id):
     """Display a specific journal entry."""
     entry = JournalEntry.query.get_or_404(entry_id)
-    delete_form = DeleteForm()  # Create a form instance to pass to the template
-    login_form = LoginForm()
-    register_form = RegistrationForm()
+    delete_form = DeleteForm()
 
-    return render_template(
-        'journal_entry.html',
-        journal_entry=entry,
-        form=delete_form,
-        login_form=login_form,
-        register_form=register_form
-    )
+    return render_template('journal_entry.html', journal_entry=entry, form=delete_form)
 
 
 @main.route('/journal/entry/<int:entry_id>/edit', methods=['GET', 'POST'])
@@ -175,20 +140,18 @@ def journal_entry(entry_id):
 def edit_journal_entry(entry_id):
     """Edit a specific journal entry."""
     entry = JournalEntry.query.get_or_404(entry_id)
-    
+
     if entry.author != current_user:
         flash('You do not have permission to edit this entry.', 'danger')
         return redirect(url_for('main.journal_entries'))
 
     form = JournalEntryForm()
-    login_form = LoginForm()
-    register_form = RegistrationForm()
 
     if form.validate_on_submit():
         entry.title = form.title.data
         entry.content = form.content.data
         entry.is_public = form.is_public.data
-        if form.image.data:  # If a new image is uploaded, save it
+        if form.image.data:
             entry.save_image(form.image.data)
         db.session.commit()
         flash('Your journal entry has been updated!', 'success')
@@ -198,15 +161,13 @@ def edit_journal_entry(entry_id):
         form.content.data = entry.content
         form.is_public.data = entry.is_public
 
-    # Pass the `entry` (journal_entry) to the template
     return render_template(
-        'edit_journal_entry.html',
+        'journal_entry_form.html',
         title='Edit Journal Entry',
         form=form,
-        journal_entry=entry,  # Pass the entry to the template
-        entry_id=entry.id,
-        login_form=login_form,
-        register_form=register_form
+        journal_entry=entry,
+        form_action=url_for('main.edit_journal_entry', entry_id=entry.id),
+        submit_button_text='Update Entry'
     )
 
 
@@ -228,9 +189,8 @@ def delete_journal_entry(entry_id):
 @main.route('/journal/new', methods=['GET', 'POST'])
 @login_required
 def new_journal_entry():
+    """Create a new journal entry."""
     form = JournalEntryForm()
-    login_form = LoginForm()
-    register_form = RegistrationForm()
 
     if form.validate_on_submit():
         journal_entry = JournalEntry(
@@ -247,11 +207,11 @@ def new_journal_entry():
         return redirect(url_for('main.journal_entries'))
 
     return render_template(
-        'create_journal_entry.html',
+        'journal_entry_form.html',
         title='New Journal Entry',
         form=form,
-        login_form=login_form,
-        register_form=register_form
+        form_action=url_for('main.new_journal_entry'),
+        submit_button_text='Create Entry'
     )
 
 
@@ -259,14 +219,7 @@ def new_journal_entry():
 def public_journal_entries():
     """Display all public journal entries."""
     entries = JournalEntry.query.filter_by(is_public=True).all()
-    login_form = LoginForm()
-    register_form = RegistrationForm()
-    return render_template(
-        'journal_entries.html',
-        journal_entries=entries,
-        login_form=login_form,
-        register_form=register_form
-    )
+    return render_template('journal_entries.html', journal_entries=entries)
 
 
 @login_manager.unauthorized_handler
