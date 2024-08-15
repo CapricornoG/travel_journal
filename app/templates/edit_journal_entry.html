@@ -3,7 +3,7 @@
 {% block content %}
     <div class="content-section">
         <h1 class="h3 mb-3 font-weight-normal">Edit Journal Entry</h1>
-        <form method="POST">
+        <form method="POST" action="{{ url_for('main.edit_journal_entry', entry_id=entry_id) }}">
             {{ form.hidden_tag() }}
             <div class="form-group">
                 {{ form.title.label(class="form-label") }}
