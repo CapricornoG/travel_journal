@@ -3,7 +3,7 @@
 {% block content %}
     <div class="content-section">
         <h1 class="h3 mb-3 font-weight-normal">{{ journal_entry.title }}</h1>
-        <p>Posted by {{ journal_entry.author.username }} on {{ journal_entry.date_posted.strftime('%Y-%m-%d') }}</p>
+        <p>Posted by {{ journal_entry.author.username if journal_entry.author else 'Unknown' }} on {{ journal_entry.date_posted.strftime('%Y-%m-%d') }}</p>
         <hr>
         <p>{{ journal_entry.content }}</p>
 
@@ -23,8 +23,8 @@
             </div>
         {% else %}
             <a href="{{ url_for('main.home') }}" class="btn btn-primary">Go to Home</a>
-            <a href="#" data-toggle="modal" data-target="#loginModal" class="btn btn-secondary">Login</a>
-            <a href="#" data-toggle="modal" data-target="#registerModal" class="btn btn-secondary">Register</a>
+            <a href="#" data-toggle="modal" data-target="#loginModal" class="btn btn-secondary" role="button" aria-controls="loginModal">Login</a>
+            <a href="#" data-toggle="modal" data-target="#registerModal" class="btn btn-secondary" role="button" aria-controls="registerModal">Register</a>
         {% endif %}
     </div>
 {% endblock %}
