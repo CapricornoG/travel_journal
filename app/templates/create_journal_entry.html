@@ -3,9 +3,11 @@
 {% block content %}
     <div class="content-section">
         <h1 class="h3 mb-3 font-weight-normal">New Journal Entry</h1>
-        <!-- Form for creating a new journal entry -->
-        <form method="POST" action="{{ url_for('main.new_journal_entry') }}">
+        
+        <!-- Form for creating a new journal entry with image upload -->
+        <form method="POST" action="{{ url_for('main.new_journal_entry') }}" enctype="multipart/form-data">
             {{ form.hidden_tag() }}
+            
             <div class="form-group">
                 {{ form.title.label(class="form-control-label") }}
                 {{ form.title(class="form-control form-control-lg") }}
@@ -15,6 +17,7 @@
                     <div class="alert alert-danger">{{ error }}</div>
                 {% endfor %}
             </div>
+
             <div class="form-group">
                 {{ form.content.label(class="form-control-label") }}
                 {{ form.content(class="form-control form-control-lg", rows="5") }}
@@ -24,10 +27,23 @@
                     <div class="alert alert-danger">{{ error }}</div>
                 {% endfor %}
             </div>
+            
+            <!-- New Image upload field -->
+            <div class="form-group">
+                {{ form.image.label(class="form-control-label") }}
+                {{ form.image(class="form-control-file") }}
+
+                <!-- Error handling for the image field -->
+                {% for error in form.image.errors %}
+                    <div class="alert alert-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+            
             <div class="form-check mb-3">
                 {{ form.is_public(class="form-check-input") }}
                 {{ form.is_public.label(class="form-check-label") }}
             </div>
+            
             <div class="form-group">
                 {{ form.submit(class="btn btn-primary btn-lg btn-block") }}
             </div>
