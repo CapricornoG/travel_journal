@@ -119,23 +119,39 @@ def delete_account():
     return redirect(url_for('main.home'))
 
 
-@main.route('/journal/entries')
+@main.route('/journal/entries', methods=['GET', 'POST'])
 @login_required
 def journal_entries():
-    """Display the current user's journal entries."""
-    entries = JournalEntry.query.filter_by(author=current_user).all()
-    delete_form = DeleteForm()  # Ensure this form is created and passed
+    search_query = request.args.get('search', '')
+    filter_option = request.args.get('filter', '')
+
+    # Query based on search and filter
+    query = JournalEntry.query.filter_by(author=current_user)
+    
+    if search_query:
+        query = query.filter(
+            (JournalEntry.title.ilike(f'%{search_query}%')) |
+            (JournalEntry.content.ilike(f'%{search_query}%'))
+        )
+
+    if filter_option == 'public':
+        query = query.filter_by(is_public=True)
+    elif filter_option == 'private':
+        query = query.filter_by(is_public=False)
+
+    entries = query.all()
+
+    delete_form = DeleteForm()
     login_form = LoginForm()
     register_form = RegistrationForm()
     
     return render_template(
         'journal_entries.html',
         journal_entries=entries,
-        delete_form=delete_form,  # Pass the form object to the template
+        delete_form=delete_form,
         login_form=login_form,
         register_form=register_form
     )
-
 
 @main.route('/journal/entry/<int:entry_id>')
 @login_required
