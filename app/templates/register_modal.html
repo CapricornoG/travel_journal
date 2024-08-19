@@ -1,32 +1,37 @@
 <form method="POST" action="{{ url_for('main.register') }}">
-    {{ form.hidden_tag() }}
+    <input type="hidden" name="csrf_token" value="{{ form.csrf_token.current_token }}">
+    
     <div class="form-group">
-        {{ form.username.label(class_="form-label") }}
-        {{ form.username(class_="form-control", id="usernameInput", aria_describedby="usernameHelp") }}
+        {{ form.username.label(class_="form-label", for_="usernameInputRegister") }}
+        {{ form.username(class_="form-control", id="usernameInputRegister", aria_describedby="usernameHelpRegister", autocomplete="username") }}
         {% for error in form.username.errors %}
             <span class="text-danger">{{ error }}</span>
         {% endfor %}
     </div>
+    
     <div class="form-group">
-        {{ form.email.label(class_="form-label") }}
-        {{ form.email(class_="form-control", id="emailInput", aria_describedby="emailHelp") }}
+        {{ form.email.label(class_="form-label", for_="emailInputRegister") }}
+        {{ form.email(class_="form-control", id="emailInputRegister", aria_describedby="emailHelpRegister", autocomplete="email") }}
         {% for error in form.email.errors %}
             <span class="text-danger">{{ error }}</span>
         {% endfor %}
     </div>
+    
     <div class="form-group">
-        {{ form.password.label(class_="form-label") }}
-        {{ form.password(class_="form-control", id="passwordInput") }}
+        {{ form.password.label(class_="form-label", for_="passwordInputRegister") }}
+        {{ form.password(class_="form-control", id="passwordInputRegister", autocomplete="new-password") }}
         {% for error in form.password.errors %}
             <span class="text-danger">{{ error }}</span>
         {% endfor %}
     </div>
+    
     <div class="form-group">
-        {{ form.confirm_password.label(class_="form-label") }}
-        {{ form.confirm_password(class_="form-control", id="confirmPasswordInput") }}
+        {{ form.confirm_password.label(class_="form-label", for_="confirmPasswordInputRegister") }}
+        {{ form.confirm_password(class_="form-control", id="confirmPasswordInputRegister", autocomplete="new-password") }}
         {% for error in form.confirm_password.errors %}
             <span class="text-danger">{{ error }}</span>
         {% endfor %}
     </div>
+    
     <button type="submit" class="btn btn-primary">Register</button>
 </form>

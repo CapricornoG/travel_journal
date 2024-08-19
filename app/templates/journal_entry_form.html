@@ -12,8 +12,11 @@
         
         <!-- Form for creating/editing journal entry with image upload -->
         <form method="POST" action="{{ form_action }}" enctype="multipart/form-data">
-            {{ form.hidden_tag() }}
             
+            <!-- CSRF Token Field Without the id attribute -->
+            <input type="hidden" name="csrf_token" value="{{ form.csrf_token._value() }}">
+            
+            <!-- Title Input -->
             <div class="form-group">
                 {{ form.title.label(class="form-control-label") }}
                 {{ form.title(class="form-control form-control-lg") }}
@@ -22,6 +25,7 @@
                 {% endfor %}
             </div>
 
+            <!-- Content Input -->
             <div class="form-group">
                 {{ form.content.label(class="form-control-label") }}
                 {{ form.content(class="form-control form-control-lg", rows="5") }}
@@ -45,11 +49,13 @@
                 {% endfor %}
             </div>
             
+            <!-- Public/Private Checkbox -->
             <div class="form-check mb-3">
                 {{ form.is_public(class="form-check-input") }}
                 {{ form.is_public.label(class="form-check-label") }}
             </div>
             
+            <!-- Submit Button -->
             <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-lg btn-block">{{ submit_button_text }}</button>
             </div>

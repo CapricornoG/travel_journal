@@ -6,11 +6,11 @@
         <p>Discover public travel journals shared by other users:</p>
 
         {% if public_entries %}
-            <ul class="list-group">
+            <div class="list-group">
                 {% for entry in public_entries %}
-                    <li class="list-group-item">
+                    <div class="list-group-item mb-3">
                         <h5>{{ entry.title }}</h5>
-                        <p>{{ entry.content[:150] }}{% if entry.content|length > 150 %}...{% endif %}</p> <!-- Truncate content if it's too long -->
+                        <p>{{ entry.content[:150] }}{% if entry.content|length > 150 %}...{% endif %}</p> <!-- Truncate content -->
 
                         <!-- Handle the case where entry.author might be missing -->
                         <small class="text-muted">
@@ -18,10 +18,12 @@
                         </small>
 
                         <!-- Read More Link -->
-                        <a href="{{ url_for('main.journal_entry', entry_id=entry.id) }}" class="btn btn-link">Read More</a>
-                    </li>
+                        <div class="mt-2">
+                            <a href="{{ url_for('main.journal_entry', entry_id=entry.id) }}" class="btn btn-link">Read More</a>
+                        </div>
+                    </div>
                 {% endfor %}
-            </ul>
+            </div>
         {% else %}
             <p>No public journal entries available yet.</p>
         {% endif %}

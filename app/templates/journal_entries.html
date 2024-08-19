@@ -34,10 +34,12 @@
 
             <div>
                 <a href="{{ url_for('main.edit_journal_entry', entry_id=entry.id) }}" class="btn btn-sm btn-secondary">Edit</a>
+
+                <!-- Delete Form -->
                 <form method="POST" action="{{ url_for('main.delete_journal_entry', entry_id=entry.id) }}" style="display: inline;">
-                    {{ delete_form.hidden_tag() }}
+                    {{ delete_form.hidden_tag() }} 
                     <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this entry?');">Delete</button>
-                </form>                            
+                </form>
             </div>
         </li>
         {% endfor %}
