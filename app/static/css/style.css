@@ -16,7 +16,6 @@ html {
     font-size: 62.5%;
     scroll-behavior: smooth;
     box-sizing: border-box;
-    height: 100%; /* Ensure html takes full height */
 }
 
 *, *::before, *::after {
@@ -31,25 +30,17 @@ body {
     font-family: 'Merriweather', serif;
     background-color: var(--light-gray);
     color: var(--dark-gray);
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Ensure body takes full height */
     padding-top: 6rem; /* To accommodate the fixed navbar */
-}
-
-/* Main content wrapper */
-.container {
-    flex: 1 0 auto; /* Main content will take remaining space */
 }
 
 /* Headings */
 h1 {
-    font-size: 3.2rem; /* Slightly larger */
+    font-size: 3.6rem; /* Increased for better prominence */
     font-family: 'Montserrat', sans-serif;
     color: var(--midnight-blue);
     font-weight: 700;
     margin-bottom: 2rem;
-    text-align: center; /* Centered for balance */
+    text-align: center;
 }
 
 h2, h3, h4 {
@@ -60,11 +51,12 @@ h2, h3, h4 {
 }
 
 /* Paragraphs */
-p {
-    font-size: 1.6rem;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
+p, .lead {
+    font-size: 1.8rem; /* Increased for better readability */
+    line-height: 1.8;
+    margin-bottom: 2rem;
     text-align: center; /* Centering text for a balanced look */
+    color: var(--dark-gray);
 }
 
 /* Navbar */
@@ -72,7 +64,7 @@ p {
     background-color: var(--midnight-blue);
     font-family: 'Montserrat', sans-serif;
     box-shadow: 0 0.4rem 1.2rem var(--card-shadow);
-    padding: 1rem 2rem; /* Padding for the navbar */
+    padding: 1rem 2rem;
 }
 
 .navbar-brand {
