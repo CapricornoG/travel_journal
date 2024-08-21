@@ -16,6 +16,7 @@ html {
     font-size: 62.5%;
     scroll-behavior: smooth;
     box-sizing: border-box;
+    height: 100%; /* Ensure html takes full height */
 }
 
 *, *::before, *::after {
@@ -30,7 +31,15 @@ body {
     font-family: 'Merriweather', serif;
     background-color: var(--light-gray);
     color: var(--dark-gray);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure body takes full height */
     padding-top: 6rem; /* To accommodate the fixed navbar */
+}
+
+/* Main content wrapper */
+.container {
+    flex: 1 0 auto; /* Main content will take remaining space */
 }
 
 /* Headings */
@@ -175,7 +184,7 @@ footer {
     text-align: center;
     padding: 2rem 0;
     font-family: 'Merriweather', serif;
-    margin-top: 4rem;
+    margin-top: auto; /* Allow footer to push to the bottom */
 }
 
 footer h5 {
