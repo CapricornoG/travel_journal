@@ -14,24 +14,47 @@
     <!-- Custom styles -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100"> <!-- Flexbox class added here -->
+
     {% include '_navbar.html' %}
     
-    <div class="container">
-        {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-            <div class="alert-container mt-4">
-                {% for category, message in messages %}
-                    <div class="alert alert-{{ category }}">
-                        {{ message }}
-                    </div>
-                {% endfor %}
+    <main class="flex-grow-1"> <!-- Main content area that grows to fill space -->
+        <div class="container">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="alert-container mt-4">
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            {% endwith %}
+            
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer mt-auto py-3"> <!-- Updated footer class -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-left">
+                    <h5><i class="fas fa-globe"></i> Travel Journal</h5>
+                    <p>&copy; 2024 Travel Journal. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-right">
+                    <ul class="social-links list-inline">
+                        <li class="list-inline-item"><a href="#"><i class="fab fa-facebook"></i></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                    </ul>
+                </div>
             </div>
-        {% endif %}
-        {% endwith %}
-        
-        {% block content %}{% endblock %}
-    </div>
+        </div>
+    </footer>
 
     <!-- Login Modal -->
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
@@ -70,26 +93,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 text-center text-md-left">
-                    <h5><i class="fas fa-globe"></i> Travel Journal</h5>
-                    <p>&copy; 2024 Travel Journal. All Rights Reserved.</p>
-                </div>
-                <div class="col-md-6 text-center text-md-right">
-                    <ul class="social-links list-inline">
-                        <li class="list-inline-item"><a href="#"><i class="fab fa-facebook"></i></a></li>
-                        <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
-                        <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
-                        <li class="list-inline-item"><a href="#"><i class="fab fa-linkedin"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

@@ -12,10 +12,11 @@
     --card-hover-shadow: rgba(0, 0, 0, 0.2);
 }
 
-html {
+html, body {
     font-size: 62.5%;
     scroll-behavior: smooth;
     box-sizing: border-box;
+    height: 100%; /* Ensure the html and body take full height */
 }
 
 *, *::before, *::after {
@@ -30,7 +31,18 @@ body {
     font-family: 'Merriweather', serif;
     background-color: var(--light-gray);
     color: var(--dark-gray);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure body height spans full view */
     padding-top: 6rem; /* To accommodate the fixed navbar */
+}
+
+.wrapper {
+    flex: 1; /* Allows the wrapper to grow and push footer to the bottom */
+}
+
+main {
+    flex-grow: 1; /* Ensures the main content area fills available space */
 }
 
 /* Headings */
