@@ -10,13 +10,16 @@
     --light-gray-text: #999;
     --card-shadow: rgba(0, 0, 0, 0.1);
     --card-hover-shadow: rgba(0, 0, 0, 0.2);
+    --danger-red: #E74C3C;
+    --danger-red-hover: #C0392B;
 }
 
+/* Base Settings */
 html, body {
     font-size: 62.5%;
     scroll-behavior: smooth;
     box-sizing: border-box;
-    height: 100%; /* Ensure the html and body take full height */
+    height: 100%;
 }
 
 *, *::before, *::after {
@@ -33,21 +36,21 @@ body {
     color: var(--dark-gray);
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Ensure body height spans full view */
-    padding-top: 6rem; /* To accommodate the fixed navbar */
+    min-height: 100vh;
+    padding-top: 6rem;
 }
 
 .wrapper {
-    flex: 1; /* Allows the wrapper to grow and push footer to the bottom */
+    flex: 1;
 }
 
 main {
-    flex-grow: 1; /* Ensures the main content area fills available space */
+    flex-grow: 1;
 }
 
 /* Headings */
 h1 {
-    font-size: 3.6rem; /* Increased for better prominence */
+    font-size: 3.6rem;
     font-family: 'Montserrat', sans-serif;
     color: var(--midnight-blue);
     font-weight: 700;
@@ -62,13 +65,30 @@ h2, h3, h4 {
     line-height: 1.2;
 }
 
+h5 {
+    font-size: 2rem;
+}
+
+.form-check-label {
+    margin-left: 1rem;
+}
+
+.form-control {
+    font-size: 1.5rem;
+}
+
 /* Paragraphs */
 p, .lead {
-    font-size: 1.8rem; /* Increased for better readability */
+    font-size: 1.8rem;
     line-height: 1.8;
     margin-bottom: 2rem;
-    text-align: center; /* Centering text for a balanced look */
+    text-align: center;
     color: var(--dark-gray);
+}
+
+.lead {
+    font-size: 2rem;
+    font-style: oblique;
 }
 
 /* Navbar */
@@ -82,27 +102,26 @@ p, .lead {
 .navbar-brand {
     color: #FFFFFF !important;
     font-weight: bold;
-    font-size: 2.4rem; /* Increased size to match the navbar items */
+    font-size: 2.4rem;
     display: flex;
-    align-items: center; /* Align icon and text vertically */
+    align-items: center;
 }
 
 .navbar-brand i {
-    margin-right: 0.8rem; /* Space between icon and text */
+    margin-right: 0.8rem;
 }
 
 .nav-link {
     color: #FFFFFF !important;
     font-weight: bold;
-    font-size: 1.8rem; /* Consistent font size for navbar items */
-    margin: 0 1.5rem; /* Larger margin to create more space between the links */
+    font-size: 1.8rem;
+    margin: 0 1.5rem;
 }
 
 .nav-link:hover {
-    color: #ECF0F1 !important;
+    color: var(--light-gray-text) !important;
 }
 
-/* Navbar Toggler */
 .navbar-toggler {
     border-color: #ECF0F1;
 }
@@ -111,74 +130,138 @@ p, .lead {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(236, 240, 241, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
-/* Add more space for the mobile navbar to prevent cramping */
-.navbar-collapse {
-    justify-content: flex-end;
-}
-
 /* Cards */
 .card {
     background-color: #FFFFFF;
-    border-radius: 1rem; /* More rounded corners */
+    border-radius: 1rem;
     box-shadow: 0 0.4rem 1.2rem var(--card-shadow);
     padding: 2rem;
-    margin-bottom: 2rem; /* Increased spacing between cards */
-    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Added transform transition */
+    margin-bottom: 2rem;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .card:hover {
     box-shadow: 0 0.8rem 1.6rem var(--card-hover-shadow);
-    transform: translateY(-0.5rem); /* Slight hover lift */
+    transform: translateY(-0.5rem);
 }
 
 .card-title {
     font-family: 'Montserrat', sans-serif;
-    color: var(--emerald-green);
-    font-size: 2rem;
+    color: var(--midnight-blue);
+    font-size: 2.3rem;
     font-weight: 600;
     margin-bottom: 1rem;
+    text-transform: capitalize;
 }
 
 .card-text {
     font-family: 'Merriweather', serif;
     color: var(--dark-gray);
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     text-align: left;
 }
 
 .text-muted {
     font-family: 'Merriweather', serif;
     color: var(--light-gray-text);
-    font-size: 1.4rem;
+    font-size: 1.6rem;
+}
+
+/* Anchor Tag Styling */
+a {
+    color: var(--midnight-blue);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    text-transform: capitalize;
+    font-size: 2rem;
+}
+
+a:hover {
+    color: var(--celestial-blue);
+    text-decoration: none;
 }
 
 /* Buttons */
 .btn-primary {
-    background-color: var(--tangerine);
-    border-color: var(--tangerine);
-    color: #FFFFFF;
+    background-color: var(--tangerine) !important;
+    border-color: var(--tangerine) !important;
+    color: #FFFFFF !important;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     text-transform: uppercase;
-    padding: 1rem 2rem;
-    border-radius: 0.4rem;
+    padding: 0.8rem 2rem;
+    font-size: 1.6rem;
+    border-radius: 0.7rem;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.btn-primary:hover, .btn-primary:focus {
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active,
+.btn-primary:active:focus, .btn-primary:focus:active {
+    background-color: var(--dark-tangerine) !important;
+    border-color: var(--dark-tangerine) !important;
+    color: #FFFFFF !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.btn-edit {
+    color: #FFFFFF !important;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    background-color: var(--celestial-blue);
+    color: white;
+    padding: 0.6rem 1.5rem;
+    border-radius: 0.4rem;
+    font-size: 1.6rem;
+    margin-right: 0.5rem;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-edit:hover {
+    background-color: var(--midnight-blue);
+    color: var(--light-gray);
+}
+
+.btn-delete {
+    color: #FFFFFF !important;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    background-color: var(--danger-red);
+    color: white;
+    padding: 0.6rem 1.5rem;
+    border-radius: 0.4rem;
+    font-size: 1.6rem;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-delete:hover {
+    background-color: var(--danger-red-hover);
+    color: var(--light-gray);
+}
+
+.btn-secondary {
+    margin-bottom: 2rem;
+    background-color: var(--tangerine);
+    padding: 0.6rem 1.5rem;
+    border-radius: 0.4rem;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #FFFFFF !important;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-right: 0.5rem;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active,
+.btn-secondary:active:focus, .btn-secondary:focus:active {
     background-color: var(--dark-tangerine);
-    box-shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.2);
-}
-
-/* Spacing Adjustments for Better Layout */
-.content-section {
-    margin-top: 4rem; /* Increased spacing */
-    text-align: center;
-}
-
-.list-group-item {
-    padding: 2rem;
-    border-radius: 0.8rem;
+    color: var(--light-gray);
 }
 
 /* Footer */
@@ -188,7 +271,7 @@ footer {
     text-align: center;
     padding: 2rem 0;
     font-family: 'Merriweather', serif;
-    margin-top: auto; /* Allow footer to push to the bottom */
+    margin-top: auto;
 }
 
 footer h5 {
@@ -199,6 +282,7 @@ footer h5 {
 footer p {
     font-size: 1.4rem;
     margin-bottom: 0;
+    color: #FFFFFF;
 }
 
 footer .social-links {
@@ -219,7 +303,7 @@ footer .social-links li a {
 }
 
 footer .social-links li a:hover {
-    color: var(--tangerine); /* Hover color for social icons */
+    color: var(--tangerine);
 }
 
 /* Alerts */
@@ -235,7 +319,7 @@ footer .social-links li a:hover {
 }
 
 .alert-danger {
-    background-color: #E74C3C;
+    background-color: var(--danger-red);
     color: white;
 }
 
@@ -251,11 +335,11 @@ footer .social-links li a:hover {
     }
 
     .navbar-brand {
-        font-size: 1.5rem;
+        font-size: 2.3rem;
     }
 
     .navbar-brand i {
-        margin-right: 0.5rem; /* Reduce space on smaller screens */
+        margin-right: 0.5rem;
     }
 
     .btn {
@@ -273,7 +357,7 @@ footer .social-links li a:hover {
     }
 
     .navbar-brand {
-        font-size: 1.25rem;
+        font-size: 2rem;
     }
 
     .navbar-brand i {

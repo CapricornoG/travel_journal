@@ -16,13 +16,16 @@
 </head>
 <body class="d-flex flex-column min-vh-100"> <!-- Flexbox class added here -->
 
+    <!-- Navbar -->
     {% include '_navbar.html' %}
     
-    <main class="flex-grow-1"> <!-- Main content area that grows to fill space -->
+    <!-- Main Content Area -->
+    <main class="flex-grow-1 py-5"> <!-- Main content area with padding -->
         <div class="container">
+            <!-- Flash Messages -->
             {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
-                <div class="alert-container mt-4">
+                <div class="alert-container mb-4">
                     {% for category, message in messages %}
                         <div class="alert alert-{{ category }}">
                             {{ message }}
@@ -32,12 +35,13 @@
             {% endif %}
             {% endwith %}
             
+            <!-- Page-specific content -->
             {% block content %}{% endblock %}
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="footer mt-auto py-3"> <!-- Updated footer class -->
+    <footer class="footer mt-auto py-3 bg-dark text-light"> <!-- Updated footer with bg-dark -->
         <div class="container">
             <div class="row">
                 <div class="col-md-6 text-center text-md-left">

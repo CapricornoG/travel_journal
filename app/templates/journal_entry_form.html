@@ -1,64 +1,68 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="content-section">
-        <h1 class="h3 mb-3 font-weight-normal">
-            {% if journal_entry %}
-                Edit Journal Entry
-            {% else %}
-                New Journal Entry
-            {% endif %}
-        </h1>
-        
-        <!-- Form for creating/editing journal entry with image upload -->
-        <form method="POST" action="{{ form_action }}" enctype="multipart/form-data">
-            
-            <!-- CSRF Token Field Without the id attribute -->
-            <input type="hidden" name="csrf_token" value="{{ form.csrf_token._value() }}">
-            
-            <!-- Title Input -->
-            <div class="form-group">
-                {{ form.title.label(class="form-control-label") }}
-                {{ form.title(class="form-control form-control-lg") }}
-                {% for error in form.title.errors %}
-                    <div class="alert alert-danger">{{ error }}</div>
-                {% endfor %}
-            </div>
-
-            <!-- Content Input -->
-            <div class="form-group">
-                {{ form.content.label(class="form-control-label") }}
-                {{ form.content(class="form-control form-control-lg", rows="5") }}
-                {% for error in form.content.errors %}
-                    <div class="alert alert-danger">{{ error }}</div>
-                {% endfor %}
-            </div>
-            
-            <!-- Image Upload Section -->
-            <div class="form-group">
-                {{ form.image.label(class="form-control-label") }}
-                {{ form.image(class="form-control-file") }}
-                {% if journal_entry and journal_entry.image_file %}
-                    <div class="mt-2">
-                        <label>Current Image:</label><br>
-                        <img src="{{ url_for('static', filename='images/' ~ journal_entry.image_file) }}" alt="{{ journal_entry.title }}" class="img-fluid mb-3">
-                    </div>
+<div class="container mt-5"> <!-- Added container and consistent spacing -->
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <h1 class="mb-4 text-center">
+                {% if journal_entry %}
+                    Edit Journal Entry
+                {% else %}
+                    New Journal Entry
                 {% endif %}
-                {% for error in form.image.errors %}
-                    <div class="alert alert-danger">{{ error }}</div>
-                {% endfor %}
-            </div>
+            </h1>
             
-            <!-- Public/Private Checkbox -->
-            <div class="form-check mb-3">
-                {{ form.is_public(class="form-check-input") }}
-                {{ form.is_public.label(class="form-check-label") }}
-            </div>
-            
-            <!-- Submit Button -->
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-lg btn-block">{{ submit_button_text }}</button>
-            </div>
-        </form>
+            <!-- Form for creating/editing journal entry with image upload -->
+            <form method="POST" action="{{ form_action }}" enctype="multipart/form-data">
+                
+                <!-- CSRF Token Field Without the id attribute -->
+                <input type="hidden" name="csrf_token" value="{{ form.csrf_token._value() }}">
+                
+                <!-- Title Input -->
+                <div class="form-group">
+                    {{ form.title.label(class="form-control-label") }}
+                    {{ form.title(class="form-control form-control-lg") }}
+                    {% for error in form.title.errors %}
+                        <div class="alert alert-danger">{{ error }}</div>
+                    {% endfor %}
+                </div>
+
+                <!-- Content Input -->
+                <div class="form-group">
+                    {{ form.content.label(class="form-control-label") }}
+                    {{ form.content(class="form-control form-control-lg", rows="5") }}
+                    {% for error in form.content.errors %}
+                        <div class="alert alert-danger">{{ error }}</div>
+                    {% endfor %}
+                </div>
+                
+                <!-- Image Upload Section -->
+                <div class="form-group">
+                    {{ form.image.label(class="form-control-label") }}
+                    {{ form.image(class="form-control-file") }}
+                    {% if journal_entry and journal_entry.image_file %}
+                        <div class="mt-2">
+                            <label>Current Image:</label><br>
+                            <img src="{{ url_for('static', filename='images/' ~ journal_entry.image_file) }}" alt="{{ journal_entry.title }}" class="img-fluid mb-3">
+                        </div>
+                    {% endif %}
+                    {% for error in form.image.errors %}
+                        <div class="alert alert-danger">{{ error }}</div>
+                    {% endfor %}
+                </div>
+                
+                <!-- Public/Private Checkbox -->
+                <div class="form-check mb-3">
+                    {{ form.is_public(class="form-check-input") }}
+                    {{ form.is_public.label(class="form-check-label") }}
+                </div>
+                
+                <!-- Submit Button -->
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">{{ submit_button_text }}</button>
+                </div>
+            </form>
+        </div>
     </div>
+</div>
 {% endblock %}

@@ -1,19 +1,30 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="content-section">
-    <h1 class="h3 mb-3 font-weight-normal">Account Details</h1>
-    <hr>
-    <p><strong>Username:</strong> {{ current_user.username }}</p>
-    <p><strong>Email:</strong> {{ current_user.email }}</p>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <h1 class="mb-4 text-center">Account Details</h1>
+            <hr>
+            <p class="text-center"><strong>Username:</strong> {{ current_user.username }}</p>
+            <p class="text-center"><strong>Email:</strong> {{ current_user.email }}</p>
 
-    <!-- Delete Account Form -->
-    <form method="POST" action="{{ url_for('main.delete_account') }}">
-        {{ form.hidden_tag() }}
-        <button type="submit" class="btn btn-danger" 
-            onclick="return confirm('Are you sure you want to delete your account? This action cannot be undone.');">
-            Delete Account
-        </button>
-    </form>
+            <div class="d-flex justify-content-center mt-4">
+                <!-- Back to Dashboard or Journal Entries Button -->
+                <a href="{{ url_for('main.journal_entries') }}" class="btn btn-secondary btn-lg mr-2">
+                    Back to My Entries
+                </a>
+                
+                <!-- Delete Account Button -->
+                <form method="POST" action="{{ url_for('main.delete_account') }}">
+                    {{ form.hidden_tag() }}
+                    <button type="submit" class="btn btn-delete"
+                        onclick="return confirm('Are you sure you want to delete your account? This action cannot be undone.');">
+                        Delete Account
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

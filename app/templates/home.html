@@ -1,35 +1,37 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="content-section text-center">
-        <h1 class="display-4 mb-4">Welcome to Travel Journal</h1>
-        <p class="lead">Discover public travel journals shared by other users:</p>
+    <div class="container mt-5"> <!-- Added container and margin-top class -->
+        <div class="text-center">
+            <h1 class="mb-4">Welcome to Travel Journal</h1>
+            <p class="lead">Discover public travel journals shared by other users:</p>
 
-        {% if public_entries %}
-            <div class="row justify-content-center">
-                {% for entry in public_entries %}
-                    <div class="col-lg-8 mb-4">
-                        <div class="card shadow-sm">
-                            <div class="card-body">
-                                <h5 class="card-title text-success">{{ entry.title }}</h5>
-                                <p class="card-text">{{ entry.content[:150] }}{% if entry.content|length > 150 %}...{% endif %}</p>
+            {% if public_entries %}
+                <div class="row justify-content-center">
+                    {% for entry in public_entries %}
+                        <div class="col-lg-8 mb-4">
+                            <div class="card shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ entry.title }}</h5>
+                                    <p class="card-text">{{ entry.content[:150] }}{% if entry.content|length > 150 %}...{% endif %}</p>
 
-                                <small class="text-muted">
-                                    by {{ entry.author.username if entry.author else 'Unknown' }} on {{ entry.date_posted.strftime('%Y-%m-%d') }}
-                                </small>
+                                    <small class="text-muted">
+                                        by {{ entry.author.username if entry.author else 'Unknown' }} on {{ entry.date_posted.strftime('%Y-%m-%d') }}
+                                    </small>
 
-                                <div class="mt-3">
-                                    <a href="{{ url_for('main.journal_entry', entry_id=entry.id) }}" class="btn btn-primary">Read More</a>
+                                    <div class="mt-3">
+                                        <a href="{{ url_for('main.journal_entry', entry_id=entry.id) }}" class="btn btn-primary">Read More</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                {% endfor %}
-            </div>
-        {% else %}
-            <div class="text-center">
-                <p class="text-muted">No public journal entries available yet.</p>
-            </div>
-        {% endif %}
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="text-center">
+                    <p class="text-muted">No public journal entries available yet.</p>
+                </div>
+            {% endif %}
+        </div>
     </div>
 {% endblock %}
