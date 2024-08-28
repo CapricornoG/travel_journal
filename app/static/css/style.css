@@ -266,7 +266,7 @@ p, .lead {
     width: 100%;
     height: auto;
     object-fit: cover;
-    max-height: 15rem;
+    max-height: 20rem;
     margin-bottom: 1rem;
 }
 
@@ -342,6 +342,7 @@ footer {
 footer h5 {
     font-size: 2rem;
     margin-bottom: 1rem;
+    color: #FFFFFF;
 }
 
 footer p {
