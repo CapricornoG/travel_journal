@@ -18,7 +18,7 @@ def inject_forms():
 @main.route('/')
 def home():
     """Render the home page with public journal entries."""
-    public_entries = JournalEntry.query.filter_by(is_public=True).all()
+    public_entries = JournalEntry.query.order_by(JournalEntry.date_posted.desc()).all()
     return render_template('home.html', public_entries=public_entries)
 
 
