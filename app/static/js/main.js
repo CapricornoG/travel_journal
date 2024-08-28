@@ -60,25 +60,31 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     // Scroll functionality for card row
-    const scrollLeftBtn = document.getElementById('scrollLeft');
-    const scrollRightBtn = document.getElementById('scrollRight');
+    const scrollLeftBtn = document.querySelector('.scroll-left');
+    const scrollRightBtn = document.querySelector('.scroll-right');
     const cardRow = document.querySelector('.card-row');
 
     if (scrollLeftBtn && cardRow) {
-        scrollLeftBtn.addEventListener('click', function() {
+        scrollLeftBtn.addEventListener('click', function () {
+            console.log('Scrolling left');
             cardRow.scrollBy({
                 left: -300, // Adjust the value as needed for scrolling distance
                 behavior: 'smooth'
             });
         });
+    } else {
+        console.warn('Scroll left button or card row not found.');
     }
 
     if (scrollRightBtn && cardRow) {
-        scrollRightBtn.addEventListener('click', function() {
+        scrollRightBtn.addEventListener('click', function () {
+            console.log('Scrolling right');
             cardRow.scrollBy({
                 left: 300, // Adjust the value as needed for scrolling distance
                 behavior: 'smooth'
             });
         });
+    } else {
+        console.warn('Scroll right button or card row not found.');
     }
 });

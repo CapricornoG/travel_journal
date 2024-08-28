@@ -1,54 +1,55 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container mt-5"> <!-- Added container and mt-5 for consistent spacing -->
-    <div class="text-center">
-        <h1 class="mb-4">Your Journal Entries</h1>
+<div class="container mt-5">
+    <h1 class="mb-4 text-center">Your Journal Entries</h1>
 
-        <!-- Search and Filter Form -->
-        <form method="GET" action="{{ url_for('main.journal_entries') }}" class="mb-4">
-            <div class="form-row justify-content-center">
-                <div class="col-md-8">
-                    <input type="text" name="search" class="form-control" placeholder="Search entries by title or content" value="{{ request.args.get('search', '') }}">
-                </div>
-                <div class="col-md-2">
-                    <select name="filter" class="form-control">
-                        <option value="">All Entries</option>
-                        <option value="public" {% if request.args.get('filter') == 'public' %}selected{% endif %}>Public</option>
-                        <option value="private" {% if request.args.get('filter') == 'private' %}selected{% endif %}>Private</option>
-                    </select>
-                </div>
-                <div class="col-md-2">
-                    <button type="submit" class="btn btn-primary btn-block">Search</button>
-                </div>
+    <form method="GET" action="{{ url_for('main.journal_entries') }}" class="mb-4">
+        <div class="form-row">
+            <div class="col-md-8">
+                <input type="text" name="search" class="form-control" placeholder="Search entries by title or content" value="{{ request.args.get('search', '') }}">
             </div>
-        </form>
+            <div class="col-md-2">
+                <select name="filter" class="form-control">
+                    <option value="">All Entries</option>
+                    <option value="public" {% if request.args.get('filter') == 'public' %}selected{% endif %}>Public</option>
+                    <option value="private" {% if request.args.get('filter') == 'private' %}selected{% endif %}>Private</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-primary btn-block">Search</button>
+            </div>
+        </div>
+    </form>
 
-        {% if journal_entries %}
-        <ul class="list-group mb-4"> <!-- Added margin-bottom for better spacing -->
-            {% for entry in journal_entries %}
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                <div>
-                    <a href="{{ url_for('main.journal_entry', entry_id=entry.id) }}" class="font-weight-bold">{{ entry.title }}</a>
-                    <small class="text-muted">on {{ entry.date_posted.strftime('%Y-%m-%d') }}</small>
+    {% if journal_entries %}
+    <div class="row justify-content-center">
+        {% for entry in journal_entries %}
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-4"> <!-- Adjusted classes for responsiveness -->
+            <div class="card h-100 shadow-sm d-flex flex-column justify-content-between">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-capitalize">{{ entry.title }}</h5>
+                    <p class="card-text">{{ entry.content[:50] }}{% if entry.content|length > 50 %}...{% endif %}</p>
+                    <small class="text-muted">
+                        by {{ entry.author.username if entry.author else 'Unknown' }} on {{ entry.date_posted.strftime('%Y-%m-%d') }}
+                    </small>
                 </div>
-
-                <div>
+                <div class="card-footer d-flex justify-content-around">
                     <a href="{{ url_for('main.edit_journal_entry', entry_id=entry.id) }}" class="btn btn-edit">Edit</a>
-
-                    <!-- Delete Form -->
-                    <form method="POST" action="{{ url_for('main.delete_journal_entry', entry_id=entry.id) }}" style="display: inline;">
+                    <form method="POST" action="{{ url_for('main.delete_journal_entry', entry_id=entry.id) }}" class="d-inline">
                         {{ delete_form.hidden_tag() }} 
                         <button type="submit" class="btn btn-delete" onclick="return confirm('Are you sure you want to delete this entry?');">Delete</button>
                     </form>
                 </div>
-            </li>
-            {% endfor %}
-        </ul>
-        {% else %}
-        <p class="text-muted">You have no journal entries matching the search criteria.</p>
-        {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p class="text-center text-muted">You have no journal entries matching the search criteria.</p>
+    {% endif %}
 
+    <div class="text-center">
         <a class="btn btn-primary mt-3" href="{{ url_for('main.new_journal_entry') }}">Create New Journal Entry</a>
     </div>
 </div>

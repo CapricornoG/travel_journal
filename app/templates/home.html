@@ -6,6 +6,16 @@
     <p class="lead">Discover public travel journals shared by other users:</p>
 
     {% if public_entries %}
+        <!-- Scroll Buttons Positioned Below the Lead Text -->
+        <div class="d-flex justify-content-end mb-3">
+            <button class="btn btn-circle btn-outline-dark scroll-left mr-2" aria-label="Scroll Left">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="btn btn-circle btn-outline-dark scroll-right" aria-label="Scroll Right">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+
         <div class="scroll-container">
             <div class="card-row">
                 {% for entry in public_entries %}
