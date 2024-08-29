@@ -210,19 +210,22 @@ The `base.html` template is the foundation of the website's layout, ensuring a c
   - **User Interaction**:
     - **Login/Register Buttons**: Displayed prominently when the user is not logged in.
      
-  - ![Login/Register Buttons](app/static/RMimages/register.png)
+  ![Login/Register Buttons](app/static/RMimages/register.png)
 
 - **Footer**:
   - **Contact Information**: To include links to contact support or social media.
     - ![Footer](app/static/RMimages/footer.png)
-
 
 - **Responsive Design**:
   - **Mobile and Desktop Views**: The base template is designed to adapt to different screen sizes.
   
   | Full Home View | Tablet Design | Mobile Design |
   |:---------------------------:|:--------------------------:|:-------------------------:|
-  |![Full Home View](app/static/RMimages/full%20home.png) |![Tablet Design](app/static/RMimages/tablet%20home.png) |![Mobile Design](app/static/RMimages/phone%20home.png) |
+  | ![Full Home View](app/static/RMimages/full%20home.png) | ![Tablet Design](app/static/RMimages/tablet%20home.png) | ![Mobile Design](app/static/RMimages/phone%20home.png) |
+
+- **Additional Features**:
+  - **Dynamic Content Loading**: Support for dynamically loading content such as modals or dropdowns.
+    - ![Dynamic Content](app/static/RMimages/login.png)
 
 
 
