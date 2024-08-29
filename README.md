@@ -1,13 +1,25 @@
 # Travel Journal
 
 ## Project Overview
-Brief description of the project.
+
+**Travel Journal** is a web application designed to help travellers document and share their journeys. Users can create personal accounts, log their travel experiences through journal entries, and enrich these entries with photos. The platform provides a user-friendly interface with essential features like creating, reading, updating, and deleting journal entries, along with options to make entries public or private. With built-in search and filter functionalities, users can easily find specific entries based on destinations or dates, making it an ideal tool for keeping a detailed and organised travel diary.
+
+Key features of Travel Journal include:
+
+- **Account Management**: Secure user registration, login, and account management.
+- **Journal Management**: CRUD (Create, Read, Update, Delete) operations for journal entries with optional image uploads.
+- **Search and Filtering**: Easily find journal entries by destination, date, or keywords.
+- **Responsive Design**: Accessible on all devices, including mobile, tablet, and desktop, ensuring a seamless experience across platforms.
+
+Travel Journal aims to foster a community of travel enthusiasts who can share their experiences and inspire others through their journeys. Whether for personal reflection or public sharing, the platform is tailored to make travel journaling intuitive and enjoyable.
+
+![responsiveness](static/RMimages/responsive.png)
+
 
 ## Table of Contents
 - [Travel Journal](#travel-journal)
   - [Project Overview](#project-overview)
   - [Table of Contents](#table-of-contents)
-  - [Project Overview](#project-overview-1)
   - [User Experience (UX)](#user-experience-ux)
     - [User Stories](#user-stories)
       - [1 - Account Management](#1---account-management)
@@ -24,18 +36,6 @@ Brief description of the project.
   - [Deployment](#deployment)
     - [Local Deployment](#local-deployment)
   
-## Project Overview
-
-**Travel Journal** is a web application designed to help travellers document and share their journeys. Users can create personal accounts, log their travel experiences through journal entries, and enrich these entries with photos. The platform provides a user-friendly interface with essential features like creating, reading, updating, and deleting journal entries, along with options to make entries public or private. With built-in search and filter functionalities, users can easily find specific entries based on destinations or dates, making it an ideal tool for keeping a detailed and organised travel diary.
-
-Key features of Travel Journal include:
-
-- **Account Management**: Secure user registration, login, and account management.
-- **Journal Management**: CRUD (Create, Read, Update, Delete) operations for journal entries with optional image uploads.
-- **Search and Filtering**: Easily find journal entries by destination, date, or keywords.
-- **Responsive Design**: Accessible on all devices, including mobile, tablet, and desktop, ensuring a seamless experience across platforms.
-
-Travel Journal aims to foster a community of travel enthusiasts who can share their experiences and inspire others through their journeys. Whether for personal reflection or public sharing, the platform is tailored to make travel journaling intuitive and enjoyable.
 
 
 ## User Experience (UX)
