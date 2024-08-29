@@ -46,6 +46,8 @@ Travel Journal aims to foster a community of travel enthusiasts who can share th
   - [Future](#future)
     - [**Base Template (`base.html`)**](#base-template-basehtml)
     - [**About Page (`about.html`)**](#about-page-abouthtml)
+    - [**Journal Entries Page**](#journal-entries-page)
+      - [**Future Plans**:](#future-plans)
   - [Deployment](#deployment)
     - [Local Deployment](#local-deployment)
   
@@ -250,6 +252,33 @@ The `about.html` page will provide information about the Travel Journal applicat
   |:---------------------------:|:----------------------------:|:---------------------------:|
   | ![About Page Mobile View](app/static/RMimages/about%20mobile.png) | ![About Page Tablet View](app/static/RMimages/about%20tablet.png) | ![About Page Desktop View](app/static/RMimages/about%20desktop.png) |
 
+### **Journal Entries Page**
+
+The **Journal Entries** page allows users to view and manage their travel journal entries. This page provides a comprehensive overview of all journal entries, with options to interact with each entry.
+
+#### **Future Plans**:
+
+- **Entry List**:
+  - **Journal Entries Overview**: Display a list of journal entries, each showing a preview of the entry's content, the date, and any associated images.
+  - **Create New Entry Button**: A prominent button to add a new journal entry, leading to the entry creation form.
+
+- **Entry Details**:
+  - **Expand/Collapse Entries**: Ability to expand or collapse the full content of each entry for more detailed viewing.
+  - **Edit/Delete Options**: Options to edit or delete individual entries, accessible via buttons or dropdown menus.
+
+- **Search and Filter**:
+  - **Search Bar**: A search bar to filter entries by keywords, destinations, or tags.
+  - **Filter Options**: Dropdown or checkboxes to filter entries based on date ranges, tags, or other criteria.
+
+- **Pagination or Infinite Scroll**:
+  - **Pagination**: If there are many entries, pagination controls to navigate through multiple pages of entries.
+  - **Infinite Scroll**: Alternatively, infinite scroll to load more entries as the user scrolls down.
+  - 
+- **Page Views**:
+  
+ | Small Screen (Mobile View) | Medium Screen (Tablet View) | Large Screen (Desktop View) |
+  |:---------------------------:|:----------------------------:|:---------------------------:|
+  | ![Journal Entries Page Mobile View](app/static/RMimages/entry%20mobile.png) | ![Journal Entries Page Tablet View](app/static/RMimages/entry%20tablet.png) | ![Journal Entries Page Desktop View](app/static/RMimages/entry%20desktop.png) |
 
 
 ## Deployment
