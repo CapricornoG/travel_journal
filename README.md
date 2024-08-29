@@ -76,9 +76,10 @@ Travel Journal aims to foster a community of travel enthusiasts who can share th
   - [Authentication/Authorization](#authenticationauthorization)
     - [User Management](#user-management)
     - [Authorization](#authorization)
-  - [Installation](#installation)
+    - [Installation](#installation)
   - [Deployment](#deployment)
-    - [Local Deployment](#local-deployment)
+    - [Deploy to Heroku:](#deploy-to-heroku)
+      - [Additional Setup for APIs](#additional-setup-for-apis)
   
 
 
@@ -600,49 +601,93 @@ The schema involves the following tables:
 - Access to journal entries is restricted based on user authentication.
 - **Public and private entries**: Users can control visibility, with private entries only accessible to the entry creator.
 
-## Installation
+### Installation
+1. **Clone the Repository:**
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/travel_journal.git
+```bash
+git clone https://github.com/yourusername/travel_journal.git
+```
+2. **Navigate to the Project Directory:**
 
-2. Navigate to the project directory:
-   
-   cd travel_journal
+```bash
+cd travel_journal
+```
+3. **Create and Activate a Virtual Environment:**
 
-3. Create and activate a virtual environment:
-    
-    python -m venv venv
-    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+```
+4. **Install Dependencies:**
 
-4. Install dependencies:
-
-   pip install -r requirements.txt
-
-5. Set up the database:
-   
-   flask db upgrade
-
-6. Run the application:
-
-   python run.py
+```bash
+pip install -r requirements.txt
+```
+5. **Create a .env File: Add your environment variables in a .env file. Example:**
 
 
+```bash
+SECRET_KEY=your-secret-key
+DATABASE_URL=your-database-url
+```
+6. **Set Up the Database:**
 
+```bash
+flask db upgrade
+```
+7. **Run the Application:**
 
-
-
-
-
+```bash
+python run.py
+```
 ## Deployment
 
-### Local Deployment
+To deploy the project, follow these steps:
 
-To run this project locally, follow these steps:
+1. **Prepare Your Heroku App:**
 
-1. **Clone the Repository**:
-   
-   Clone the repository to your local machine using the following command:
+Log in to Heroku and create a new app from the dashboard.
 
-   ```bash
-   git clone https://github.com/CapricornoG/travel_journal.git
+2. **Set Environment Variables on Heroku:**
+
+ In the Heroku dashboard, go to Settings > Reveal Config Vars and add:
+
+SECRET_KEY
+
+DATABASE_URL
+
+Other necessary environment variables
+
+3. **Prepare Deployment Files:**
+
+- **requirements.txt**: Ensure it's up-to-date:
+```bash
+pip freeze > requirements.txt
+```
+- **Procfile:** Create a Procfile with:
+
+```bash
+web: python run.py
+```
+- **runtime.txt:** Specify the Python version 
+
+### Deploy to Heroku:
+
+- **Connect Your GitHub Repository:** In Heroku, go to Deploy and connect your GitHub repository.
+- **Deploy via Git:** Use the following commands:
+```bash
+heroku login
+heroku git:remote -a your-app-name
+git push heroku main
+```
+
+#### Additional Setup for APIs
+- **EmailJS:**
+
+1. **Get API Key**: Sign up at EmailJS, obtain your API key, and add it to your .env file.
+- **Google Maps API:**
+
+1. **Get API Key:** Set up Google Maps API on Google Cloud, add your API key to .env.
+- **Cloudinary:**
+
+ 1. **Get API Credentials:** Sign up at Cloudinary, obtain your API credentials, and configure them in .env.
