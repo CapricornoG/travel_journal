@@ -80,11 +80,24 @@ Travel Journal aims to foster a community of travel enthusiasts who can share th
 ### Design Choices
 
 #### Colour Scheme
-The chosen colour scheme is intended to evoke the feelings of adventure, warmth, and relaxation associated with travel. The primary colour is turquoise, the secondary colour is coral, and the accent colour is sand.
 
-- **Primary Colour**: Turquoise (#40E0D0)
-- **Secondary Colour**: Coral (#FF7F50)
-- **Accent Colour**: Sand (#C2B280)
+The colour scheme has been thoughtfully crafted to evoke a sense of adventure, vibrancy, and clarity. Colours have been selected to create a cohesive palette that enhances user experience and interface aesthetics. The primary colours used are Midnight Blue for a reliable foundation, Tangerine for vibrant highlights, and Emerald Green for refreshing accents. Light Grey serves as a soft backdrop, while Dark Grey ensures clear and readable text.
+
+- **Primary Colour**: Midnight Blue (#2C3E50) – A deep, dependable blue.
+- **Secondary Colour**: Tangerine (#E67E22) – A bright, energetic orange.
+- **Accent Colour**: Emerald Green (#2ECC71) – A refreshing, vibrant green.
+- **Background Colour**: Light Grey (#F2F2F2) – A neutral, unobtrusive backdrop.
+- **Text Colour**: Dark Grey (#333) – A strong, readable grey for text.
+
+**Hover Effects**: 
+- **Tangerine Hover**: Dark Tangerine (#D35400) – A darker shade for a more pronounced hover effect.
+- **Danger Hover**: Danger Red Hover (#C0392B) – A deeper red for clear, intense hover feedback.
+
+To create a harmonious palette, these colours were used to generate a cohesive colour scheme. You can explore and create your own colour palettes using tools such as [Coolors](https://coolors.co/).
+
+![responsiveness](app/static/RMimages/coolors.png)
+
+
 
 #### Typography
 The typography aims to be clean and readable, suitable for both headings and body text, with an optional accent font for special elements.
