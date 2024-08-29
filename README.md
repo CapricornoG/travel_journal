@@ -42,6 +42,7 @@ Travel Journal aims to foster a community of travel enthusiasts who can share th
       - [Typography](#typography)
       - [Imagery](#imagery)
   - [Wireframes](#wireframes)
+    - [Wireframe Creation](#wireframe-creation)
   - [Deployment](#deployment)
     - [Local Deployment](#local-deployment)
   
@@ -180,6 +181,16 @@ Imagery is carefully selected to inspire and enhance the travel journaling exper
 <summary>Mobile Wireframe</summary>
 
 ![Mobile View Wireframe](wireframes/mobile_wireframe.png)
+
+</details>
+
+### Wireframe Creation
+
+For the design of the Travel Journal application, wireframes were created using Balsamiq, a tool known for its simplicity and effectiveness in sketching out user interfaces. Initially, I focused on developing wireframes specifically for mobile screens. This approach allowed me to address the most critical aspects of the user interface on smaller devices before adapting the design for larger screens.
+
+Due to time constraints, wireframes for medium and large screens were not created. Instead, the mobile wireframe served as a foundational guide. While the wireframe depicted in the image provided a starting point, many elements and layouts have evolved since its creation. The wireframe has been used primarily as a reference, and adjustments have been made to better meet user needs and improve overall design.
+
+Future improvements will include creating and refining wireframes for medium and large screens to ensure a fully responsive and well-designed user experience across all device sizes.
 
 </details>
 
