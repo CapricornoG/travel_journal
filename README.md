@@ -1,5 +1,10 @@
 # Travel Journal
 
+### Live Website
+
+Visit the live website here: [Travel Journal](https://travel-journal-app-27dadaec774c.herokuapp.com/)
+
+
 ## Project Overview
 
 **Travel Journal** is a web application designed to help travellers document and share their journeys. Users can create personal accounts, log their travel experiences through journal entries, and enrich these entries with photos. The platform provides a user-friendly interface with essential features like creating, reading, updating, and deleting journal entries, along with options to make entries public or private. With built-in search and filter functionalities, users can easily find specific entries based on destinations or dates, making it an ideal tool for keeping a detailed and organised travel diary.
@@ -18,6 +23,7 @@ Travel Journal aims to foster a community of travel enthusiasts who can share th
 
 ## Table of Contents
 - [Travel Journal](#travel-journal)
+    - [Live Website](#live-website)
   - [Project Overview](#project-overview)
   - [Table of Contents](#table-of-contents)
   - [User Experience (UX)](#user-experience-ux)
