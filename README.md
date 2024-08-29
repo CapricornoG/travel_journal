@@ -13,7 +13,7 @@ Key features of Travel Journal include:
 
 Travel Journal aims to foster a community of travel enthusiasts who can share their experiences and inspire others through their journeys. Whether for personal reflection or public sharing, the platform is tailored to make travel journaling intuitive and enjoyable.
 
-![responsiveness](static/RMimages/responsive.png)
+![responsiveness](app/static/RMimages/responsive.png)
 
 
 ## Table of Contents
