@@ -43,6 +43,8 @@ Travel Journal aims to foster a community of travel enthusiasts who can share th
       - [Imagery](#imagery)
   - [Wireframes](#wireframes)
     - [Wireframe Creation](#wireframe-creation)
+  - [Future](#future)
+    - [**Base Template (`base.html`)**](#base-template-basehtml)
   - [Deployment](#deployment)
     - [Local Deployment](#local-deployment)
   
@@ -193,6 +195,44 @@ Due to time constraints, wireframes for medium and large screens were not create
 Future improvements will include creating and refining wireframes for medium and large screens to ensure a fully responsive and well-designed user experience across all device sizes.
 
 </details>
+
+## Future
+
+### **Base Template (`base.html`)**
+
+The `base.html` template is the foundation of the website's layout, ensuring a consistent look and feel across all pages. Here’s what’s planned for the future:
+
+- **Header**:
+  - **Navigation Bar**:
+    - The navigation bar will feature links to Home, About, Journal Entries, and Account pages.
+  
+    ![Navigation Bar](app/static/RMimages/nav-desktop.png)
+  - **User Interaction**:
+    - **Login/Register Buttons**: Displayed prominently when the user is not logged in.
+     
+  - ![Login/Register Buttons](app/static/RMimages/register.png)
+
+- **Footer**:
+  - **Contact Information**: To include links to contact support or social media.
+    - ![Footer](app/static/RMimages/footer.png)
+
+
+- **Responsive Design**:
+  - **Mobile and Desktop Views**: The base template is designed to adapt to different screen sizes.
+  
+  | Full Home View | Tablet Design | Mobile Design |
+  |:---------------------------:|:--------------------------:|:-------------------------:|
+  |![Full Home View](app/static/RMimages/full%20home.png) |![Tablet Design](app/static/RMimages/tablet%20home.png) |![Mobile Design](app/static/RMimages/phone%20home.png) |
+
+
+
+- **Additional Features**:
+  - **Dynamic Content Loading**: Support for dynamically loading content such as modals or dropdowns.
+    - ![Dynamic Content](app/static/RMimages/login.png)
+
+
+
+
 
 ## Deployment
 
