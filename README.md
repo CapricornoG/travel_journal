@@ -246,7 +246,7 @@ The `about.html` page will provide information about the Travel Journal applicat
 - **Responsive Design**:
   - **Page Views**:
   
-  | Small Screen (Mobile View) | Medium Screen (Tablet View) | Large Screen (Desktop View) |
+   | Small Screen (Mobile View) | Medium Screen (Tablet View) | Large Screen (Desktop View) |
   |:---------------------------:|:----------------------------:|:---------------------------:|
   | ![About Page Mobile View](app/static/RMimages/about%20mobile.png) | ![About Page Tablet View](app/static/RMimages/about%20tablet.png) | ![About Page Desktop View](app/static/RMimages/about%20desktop.png) |
 
