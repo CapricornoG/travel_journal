@@ -48,6 +48,7 @@ Travel Journal aims to foster a community of travel enthusiasts who can share th
     - [**About Page (`about.html`)**](#about-page-abouthtml)
     - [**Journal Entries Page**](#journal-entries-page)
       - [**Future Plans**:](#future-plans)
+    - [\*\*Edit Form Page \*\*](#edit-form-page-)
   - [Deployment](#deployment)
     - [Local Deployment](#local-deployment)
   
@@ -280,6 +281,23 @@ The **Journal Entries** page allows users to view and manage their travel journa
   |:---------------------------:|:----------------------------:|:---------------------------:|
   | ![Journal Entries Page Mobile View](app/static/RMimages/entry%20mobile.png) | ![Journal Entries Page Tablet View](app/static/RMimages/entry%20tablet.png) | ![Journal Entries Page Desktop View](app/static/RMimages/entry%20desktop.png) |
 
+### **Edit Form Page **
+
+The `Edit` form page enables users to modify existing journal entries. Future updates will include:
+
+- **Form Fields**:
+  - **Title**: Input field for the journal entry title.
+  - **Date**: Input field for selecting the date of the journal entry.
+  - **Content**: Text area for entering or updating the main content of the journal entry.
+  - **Tags/Categories**: Input field for adding or modifying tags or categories.
+  - **Image Upload**: Option to upload a new image or replace an existing one.
+
+- **Form Actions**:
+  - **Save Changes**: Button to submit the updated entry.
+  - **Cancel**: Button to discard changes and return to the previous page.
+  
+![edit](app/static/RMimages/edit.png)
+![edit](app/static/RMimages/edit%202.png)
 
 ## Deployment
 
