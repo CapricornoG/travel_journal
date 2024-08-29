@@ -5,17 +5,34 @@ Brief description of the project.
 - [Travel Journal](#travel-journal)
   - [Project Overview](#project-overview)
   - [Table of Contents](#table-of-contents)
+  - [Project Overview](#project-overview-1)
   - [User Experience (UX)](#user-experience-ux)
     - [User Stories](#user-stories)
       - [1 - Account Management](#1---account-management)
       - [2 - Journal Management](#2---journal-management)
       - [3 - Search and Accessibility](#3---search-and-accessibility)
+      - [4- User Experience](#4--user-experience)
+      - [5 - Privacy and Sharing](#5---privacy-and-sharing)
     - [Site Goals](#site-goals)
     - [Design Choices](#design-choices)
       - [Colour Scheme](#colour-scheme)
       - [Typography](#typography)
       - [Imagery](#imagery)
   - [Wireframes](#wireframes)
+  
+## Project Overview
+
+**Travel Journal** is a web application designed to help travellers document and share their journeys. Users can create personal accounts, log their travel experiences through journal entries, and enrich these entries with photos. The platform provides a user-friendly interface with essential features like creating, reading, updating, and deleting journal entries, along with options to make entries public or private. With built-in search and filter functionalities, users can easily find specific entries based on destinations or dates, making it an ideal tool for keeping a detailed and organised travel diary.
+
+Key features of Travel Journal include:
+
+- **Account Management**: Secure user registration, login, and account management.
+- **Journal Management**: CRUD (Create, Read, Update, Delete) operations for journal entries with optional image uploads.
+- **Search and Filtering**: Easily find journal entries by destination, date, or keywords.
+- **Responsive Design**: Accessible on all devices, including mobile, tablet, and desktop, ensuring a seamless experience across platforms.
+
+Travel Journal aims to foster a community of travel enthusiasts who can share their experiences and inspire others through their journeys. Whether for personal reflection or public sharing, the platform is tailored to make travel journaling intuitive and enjoyable.
+
 
 ## User Experience (UX)
 
@@ -37,16 +54,17 @@ Brief description of the project.
   
 #### 3 - Search and Accessibility
 
-As a user, I want to search and filter journal entries by destination or date, so that I can quickly find specific entries.
-As a user, I want to view my journal entries on different devices, including mobile, tablet, and desktop, so that I can access my journals anytime, anywhere.
-User Experience
+- **As a user, I want to search and filter journal entries by destination or date, so that I can quickly find specific entries.**
+- **As a user, I want to view my journal entries on different devices, including mobile, tablet, and desktop, so that I can access my journals anytime, anywhere.**
+  
+#### 4- User Experience
 
-As a first-time visitor, I want to understand the purpose of the website immediately, so that I know what value it offers me.
-As a user, I want clear and friendly error messages, so that I can easily understand and correct any issues I encounter.
-Privacy and Sharing
+- **As a first-time visitor, I want to understand the purpose of the website immediately, so that I know what value it offers me.**
+- **As a user, I want clear and friendly error messages, so that I can easily understand and correct any issues I encounter.**
+#### 5 - Privacy and Sharing
 
-As a user, I want to set my journal entries as public or private, so that I have control over who can see my content.
-As a user, I want to be able to share my public journal entries with others, so that I can inspire friends or other travellers.
+- **As a user, I want to set my journal entries as public or private, so that I have control over who can see my content.**
+- **As a user, I want to be able to share my public journal entries with others, so that I can inspire friends or other travellers.**
 
 ### Site Goals
 - **Provide a platform for users to document and share their travel experiences.**
