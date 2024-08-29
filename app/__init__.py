@@ -25,8 +25,18 @@ def create_app():
     app = Flask(__name__)
 
     # Configure Flask application
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
     app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
+
+    # Handle different environments for DATABASE_URL
+    if os.environ.get('DEVELOPMENT') == 'True':
+        # For local development, use a local database URL
+        app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DB_URL')
+    else:
+        # For production on Heroku, use the DATABASE_URL from the environment
+        uri = os.getenv('DATABASE_URL')  # Get the Heroku DATABASE_URL
+        if uri and uri.startswith('postgres://'):
+            uri = uri.replace('postgres://', 'postgresql://', 1)  # Adjust for SQLAlchemy
+        app.config['SQLALCHEMY_DATABASE_URI'] = uri
 
     # Initialize Flask extensions
     db.init_app(app)
