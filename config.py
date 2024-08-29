@@ -1,6 +1,6 @@
 import os
 
 class Config:
-    SECRET_KEY = os.environ.get('SECRET_KEY') or 'fallback_secret_key'  # Replace 'fallback_secret_key' with a backup key if needed
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or 'sqlite:///local.db'  # Default to a local SQLite database
-    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    SECRET_KEY = os.getenv('SECRET_KEY', 'fallback_secret_key')  # Use the secret key from env or a fallback
+    SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL', 'sqlite:///local.db')  # Use the database URL from env or fallback to SQLite
+    SQLALCHEMY_TRACK_MODIFICATIONS = False  # Avoids SQLAlchemy event system overhead
