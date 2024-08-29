@@ -145,7 +145,7 @@ The colour scheme has been thoughtfully crafted to evoke a sense of adventure, v
 
 To create a harmonious palette, these colours were used to generate a cohesive colour scheme. You can explore and create your own colour palettes using tools such as [Coolors](https://coolors.co/).
 
-![collours](app/static/RMimages/colours.png)
+![colours](app/static/RMimages/colours.png)
 
 
 
@@ -167,10 +167,13 @@ The typography is designed to ensure clarity and readability while complementing
 The typography styles are applied consistently across the application to maintain a cohesive look and feel.
 
 #### Imagery
-Imagery is selected to inspire and capture the essence of travel, featuring high-quality photos of landmarks, landscapes, and cultural experiences.
+Imagery is carefully selected to inspire and enhance the travel journaling experience.
 
-- **Header Images**: Large, striking images of popular travel destinations.
-- **Icons**: Simple, flat icons for navigation and action buttons.
+- **User-Uploaded Photos**: The primary images on the website are taken from users who upload their travel photos. This feature allows for a personalized and authentic representation of travel experiences.
+- **Stock Photos**: For demonstration and initial setup, stock images from [Pexels](https://www.pexels.com) are used. These images help illustrate the site’s design and functionality.
+- **Hero Images**: Currently, hero images (large, prominent visuals) are not included due to time constraints. However, adding engaging hero images showcasing stunning travel destinations is a planned feature for future updates. These images will enhance the visual appeal of the website and draw users' attention.
+- **Icons**: The icons used throughout the site are sourced from [Font Awesome](https://fontawesome.com). Font Awesome provides a wide range of scalable vector icons that are easy to customize and integrate into the site's design.
+
 
 ## Wireframes
 <details>
