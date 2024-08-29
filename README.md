@@ -100,11 +100,21 @@ To create a harmonious palette, these colours were used to generate a cohesive c
 
 
 #### Typography
-The typography aims to be clean and readable, suitable for both headings and body text, with an optional accent font for special elements.
+
+The typography is designed to ensure clarity and readability while complementing the overall aesthetic of the site. The font choices are made to enhance the user experience across various elements of the application.
 
 - **Heading Font**: Montserrat (sans-serif)
+  - Used for headings (`h1`, `h2`, `h3`, `h4`, `h5`) to ensure a clean and modern look. It’s applied with varying font sizes and weights to create a clear visual hierarchy.
+  - Example: `h1` is set to 3.6rem with a font-weight of 700, and `h5` is set to 2rem with text-transform: capitalize.
+
 - **Body Font**: Merriweather (serif)
-- **Accent Font**: Dancing Script (cursive, used sparingly)
+  - Chosen for body text and paragraphs for its readability and elegant serif design. It supports the main content and provides a balanced contrast to the heading font.
+  - Example: Body text is set to 1.6rem with a line-height of 1.8, and special paragraphs (`.lead`) are slightly larger at 2rem with oblique styling.
+
+- **Accent Font**: Dancing Script (cursive)
+  - Used sparingly for accent elements to add a touch of personality and flair where needed.
+
+The typography styles are applied consistently across the application to maintain a cohesive look and feel.
 
 #### Imagery
 Imagery is selected to inspire and capture the essence of travel, featuring high-quality photos of landmarks, landscapes, and cultural experiences.
