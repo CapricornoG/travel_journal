@@ -59,6 +59,7 @@ Travel Journal aims to foster a community of travel enthusiasts who can share th
     - [**2. Advanced Content Management**](#2-advanced-content-management)
     - [**3. Social Interaction Features**](#3-social-interaction-features)
     - [**4. Enhanced User Profiles**](#4-enhanced-user-profiles)
+  - [Testing](#testing)
   - [Project Structure](#project-structure)
   - [Technologies](#technologies)
     - [Backend](#backend)
@@ -479,6 +480,10 @@ In our vision for the future, the Travel Journal website will evolve into a dyna
 2. **Achievements System**: Develop a system for tracking and displaying user achievements and badges.
 
 With these enhancements, Travel Journal will evolve into a versatile platform that combines the best aspects of blogging and social media, offering users a richer, more interactive way to document and share their travels. Stay tuned for these exciting updates as we continue to innovate and improve the Travel Journal experience!
+
+## Testing
+
+[Testing Section](testing.md)
 
 ## Project Structure
 
