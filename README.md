@@ -51,6 +51,9 @@ Travel Journal aims to foster a community of travel enthusiasts who can share th
     - [\*\*Edit Form Page \*\*](#edit-form-page-)
     - [Account Page](#account-page)
     - [**Current Functionality**](#current-functionality)
+    - [Login Modal](#login-modal)
+    - [Register Modal](#register-modal)
+  - [JavaScript Functionality](#javascript-functionality)
   - [Deployment](#deployment)
     - [Local Deployment](#local-deployment)
   
@@ -318,6 +321,81 @@ The **Account** page is designed to allow users to manage their account settings
 
 ![account](app/static/RMimages/account.png)
 
+### Login Modal
+
+The **Login Modal** is used to authenticate existing users. It provides a streamlined interface for users to log into their accounts. Here are its main features:
+
+- **Email Input**: 
+  - **Purpose**: Allows users to enter their registered email address.
+  - **Validation**: Ensures the email format is correct and the email is associated with an account.
+
+- **Password Input**: 
+  - **Purpose**: Securely accepts the user’s password.
+  - **Validation**: Ensures the password meets security requirements and matches the stored password for the given email.
+
+- **Remember Me Checkbox**: 
+  - **Purpose**: Provides an option to remember the user’s login session.
+  - **Function**: If selected, keeps the user logged in across sessions, improving convenience.
+
+- **Form Submission**: 
+  - **Action**: Submits the login form data to the server for authentication.
+  - **Security**: Includes a CSRF token to prevent cross-site request forgery attacks.
+
+- **Trigger**: 
+  - **Button**: Activated by a "Login" button on the main interface.
+  - **Behavior**: Opens the modal when clicked, allowing users to log in from different parts of the site.
+
+### Register Modal
+
+The **Register Modal** enables new users to create an account on the site. It captures essential information required for registration. Its main features are:
+
+- **Username Input**: 
+  - **Purpose**: Allows users to choose a unique username for their account.
+  - **Validation**: Ensures the username is unique and meets any predefined criteria.
+
+- **Email Input**: 
+  - **Purpose**: Requires users to enter a valid email address.
+  - **Validation**: Ensures the email format is correct and is not already associated with an existing account.
+
+- **Password Input**: 
+  - **Purpose**: Lets users create a secure password.
+  - **Validation**: Ensures the password meets security standards and is sufficiently complex.
+
+- **Confirm Password Input**: 
+  - **Purpose**: Confirms that the password entered matches the user’s intended password.
+  - **Validation**: Ensures both passwords are identical to avoid registration errors.
+
+- **Form Submission**: 
+  - **Action**: Submits the registration details to the server to create a new account.
+  - **Security**: Includes a CSRF token to protect against cross-site request forgery.
+
+- **Trigger**: 
+  - **Button**: Activated by a "Register" button on the main interface.
+  - **Behavior**: Opens the modal for new users to sign up quickly and easily.
+
+## JavaScript Functionality
+
+Both modals are managed using JavaScript to enhance user experience:
+
+- **Show Modal**: 
+  - **Function**: Displays the specified modal by using Bootstrap’s `modal('show')` method.
+  - **Implementation**: Triggered by the respective login and register buttons.
+
+- **Hide Modal**: 
+  - **Function**: Hides the specified modal using Bootstrap’s `modal('hide')` method.
+  - **Implementation**: Automatically handled by Bootstrap when clicking outside the modal.
+
+- **Button Event Listeners**:
+  - **Login Button**: Opens the login modal when clicked.
+  - **Register Button**: Opens the register modal when clicked.
+
+- **Scroll Functionality**: 
+  - **Function**: Allows horizontal scrolling for elements with the class `.card-row`.
+  - **Implementation**: Includes buttons to scroll left and right with smooth animation.
+
+- **Toggle Content Visibility**:
+  - **Function**: Toggles between short and full content in cards.
+  - **Implementation**: Provides a "Read more/Read less" feature to manage content visibility.
 
 ## Deployment
 
