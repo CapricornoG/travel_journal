@@ -45,6 +45,7 @@ Travel Journal aims to foster a community of travel enthusiasts who can share th
     - [Wireframe Creation](#wireframe-creation)
   - [Future](#future)
     - [**Base Template (`base.html`)**](#base-template-basehtml)
+    - [**About Page (`about.html`)**](#about-page-abouthtml)
   - [Deployment](#deployment)
     - [Local Deployment](#local-deployment)
   
@@ -228,12 +229,26 @@ The `base.html` template is the foundation of the website's layout, ensuring a c
     - ![Dynamic Content](app/static/RMimages/login.png)
 
 
-
 - **Additional Features**:
   - **Dynamic Content Loading**: Support for dynamically loading content such as modals or dropdowns.
     - ![Dynamic Content](app/static/RMimages/login.png)
 
 
+### **About Page (`about.html`)**
+
+The `about.html` page will provide information about the Travel Journal application, including its purpose, development background, and the team behind it. Here’s what’s planned for the future:
+
+- **Content Layout**:
+  - **Introduction**: Brief overview of the application and its objectives.
+  - **Team Section**: Information about the team members and their roles.
+  - **Development Timeline**: Key milestones in the development of the application.
+  
+- **Responsive Design**:
+  - **Page Views**:
+  
+  | Small Screen (Mobile View) | Medium Screen (Tablet View) | Large Screen (Desktop View) |
+  |:---------------------------:|:----------------------------:|:---------------------------:|
+  | ![About Page Mobile View](app/static/RMimages/about%20mobile.png) | ![About Page Tablet View](app/static/RMimages/about%20tablet.png) | ![About Page Desktop View](app/static/RMimages/about%20desktop.png) |
 
 
 
