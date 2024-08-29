@@ -265,7 +265,8 @@ The **Journal Entries** page allows users to view and manage their travel journa
 
 - **Entry Details**:
   - **Expand/Collapse Entries**: Ability to expand or collapse the full content of each entry for more detailed viewing.
-  - **Edit/Delete Options**: Options to edit or delete individual entries, accessible via buttons or dropdown menus.
+  - **Edit/Delete Options**: Options to edit or delete individual entries. 
+    - **Delete Functionality**: Users will be able to click on a delete button to remove an entry permanently. A confirmation prompt will be shown to prevent accidental deletions.
 
 - **Search and Filter**:
   - **Search Bar**: A search bar to filter entries by keywords, destinations, or tags.
@@ -274,7 +275,7 @@ The **Journal Entries** page allows users to view and manage their travel journa
 - **Pagination or Infinite Scroll**:
   - **Pagination**: If there are many entries, pagination controls to navigate through multiple pages of entries.
   - **Infinite Scroll**: Alternatively, infinite scroll to load more entries as the user scrolls down.
-  - 
+
 - **Page Views**:
   
  | Small Screen (Mobile View) | Medium Screen (Tablet View) | Large Screen (Desktop View) |
