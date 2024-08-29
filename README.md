@@ -1,6 +1,8 @@
 # Travel Journal
+
 ## Project Overview
 Brief description of the project.
+
 ## Table of Contents
 - [Travel Journal](#travel-journal)
   - [Project Overview](#project-overview)
@@ -19,6 +21,8 @@ Brief description of the project.
       - [Typography](#typography)
       - [Imagery](#imagery)
   - [Wireframes](#wireframes)
+  - [Deployment](#deployment)
+    - [Local Deployment](#local-deployment)
   
 ## Project Overview
 
@@ -102,3 +106,16 @@ Imagery is selected to inspire and capture the essence of travel, featuring high
 ![Mobile View Wireframe](wireframes/mobile_wireframe.png)
 
 </details>
+
+## Deployment
+
+### Local Deployment
+
+To run this project locally, follow these steps:
+
+1. **Clone the Repository**:
+   
+   Clone the repository to your local machine using the following command:
+
+   ```bash
+   git clone https://github.com/CapricornoG/travel_journal.git
