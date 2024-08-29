@@ -49,6 +49,8 @@ Travel Journal aims to foster a community of travel enthusiasts who can share th
     - [**Journal Entries Page**](#journal-entries-page)
       - [**Future Plans**:](#future-plans)
     - [\*\*Edit Form Page \*\*](#edit-form-page-)
+    - [Account Page](#account-page)
+    - [**Current Functionality**](#current-functionality)
   - [Deployment](#deployment)
     - [Local Deployment](#local-deployment)
   
@@ -299,6 +301,23 @@ The `Edit` form page enables users to modify existing journal entries. Future up
   
 ![edit](app/static/RMimages/edit.png)
 ![edit](app/static/RMimages/edit%202.png)
+
+### Account Page
+
+The **Account** page is designed to allow users to manage their account settings and perform essential account-related actions. Currently, the page supports basic account management features with plans for future enhancements.
+
+### **Current Functionality**
+
+- **View Account Details**:
+  - **Username**: Displays the current user's username.
+  - **Email**: Shows the current user's email address.
+
+- **Account Actions**:
+  - **Back to My Entries Button**: Redirects users to their journal entries page, allowing them to continue managing their travel logs.
+  - **Delete Account Button**: Allows users to permanently delete their account. This action is confirmed through a prompt to prevent accidental deletions.
+
+![account](app/static/RMimages/account.png)
+
 
 ## Deployment
 
