@@ -28,6 +28,9 @@ Travel Journal aims to foster a community of travel enthusiasts who can share th
       - [4- User Experience](#4--user-experience)
       - [5 - Privacy and Sharing](#5---privacy-and-sharing)
     - [Site Goals](#site-goals)
+      - [For New Site Users](#for-new-site-users)
+      - [For Returning Site Users](#for-returning-site-users)
+      - [General Goals](#general-goals)
     - [Design Choices](#design-choices)
       - [Colour Scheme](#colour-scheme)
       - [Typography](#typography)
@@ -71,11 +74,22 @@ Travel Journal aims to foster a community of travel enthusiasts who can share th
 - **As a user, I want to be able to share my public journal entries with others, so that I can inspire friends or other travellers.**
 
 ### Site Goals
-- **Provide a platform for users to document and share their travel experiences.**
-- **Allow users to easily create, read, update, and delete their journal entries.**
-- **Enable users to upload photos with their journal entries.**
-- **Provide search and filter functionality to help users find journal entries by destination.**
-- **Ensure the application is responsive and user-friendly on all devices.**
+
+#### For New Site Users
+- **Create a Seamless Onboarding Experience**: Ensure new users can easily understand the platform’s purpose and get started quickly with clear onboarding instructions and tutorials.
+- **Simplify Account Creation**: Provide a straightforward and secure process for new users to register, including guidance on setting up their profile and starting their first journal entry.
+- **Enhance Discoverability**: Make it easy for new users to explore the features of the platform and understand how to use them effectively.
+
+#### For Returning Site Users
+- **Streamline Account Management**: Offer easy-to-access options for returning users to log in, manage their account settings, and reset passwords if needed.
+- **Facilitate Entry Management**: Ensure returning users can quickly create, read, update, and delete journal entries with minimal friction.
+- **Provide Enhanced Search and Filtering**: Improve search and filter functionalities to help returning users find specific entries or browse through their travel history more efficiently.
+
+#### General Goals
+- **Provide a Platform for Documenting and Sharing Travel Experiences**: Allow users to create, read, update, and delete journal entries, and upload photos to enrich their entries.
+- **Offer Robust Search and Filter Functionality**: Help users find journal entries by destination, date, or tags.
+- **Ensure Responsiveness and User-Friendliness**: Make sure the application works seamlessly across all devices, including mobile, tablet, and desktop.
+
 
 ### Design Choices
 
