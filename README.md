@@ -95,7 +95,7 @@ The colour scheme has been thoughtfully crafted to evoke a sense of adventure, v
 
 To create a harmonious palette, these colours were used to generate a cohesive colour scheme. You can explore and create your own colour palettes using tools such as [Coolors](https://coolors.co/).
 
-![responsiveness](app/static/RMimages/coolors.png)
+![collours](app/static/RMimages/coolors.png)
 
 
 
