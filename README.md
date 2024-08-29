@@ -31,6 +31,12 @@ Travel Journal aims to foster a community of travel enthusiasts who can share th
       - [For New Site Users](#for-new-site-users)
       - [For Returning Site Users](#for-returning-site-users)
       - [General Goals](#general-goals)
+  - [How to Meet User Requirements](#how-to-meet-user-requirements)
+    - [1 - Account Management](#1---account-management-1)
+    - [2 - Journal Management](#2---journal-management-1)
+    - [3 - Search and Accessibility](#3---search-and-accessibility-1)
+    - [4 - User Experience](#4---user-experience)
+    - [5 - Privacy and Sharing](#5---privacy-and-sharing-1)
     - [Design Choices](#design-choices)
       - [Colour Scheme](#colour-scheme)
       - [Typography](#typography)
@@ -91,6 +97,36 @@ Travel Journal aims to foster a community of travel enthusiasts who can share th
 - **Ensure Responsiveness and User-Friendliness**: Make sure the application works seamlessly across all devices, including mobile, tablet, and desktop.
 
 
+## How to Meet User Requirements
+
+### 1 - Account Management
+
+- **Secure Registration and Confirmation**: Implement secure authentication protocols and email verification for account creation, ensuring users receive a confirmation upon successful registration.
+- **Easy Login/Logout**: Design an intuitive interface for logging in and out, with clear navigation and session management options.
+- **Password Reset**: Include a straightforward password recovery system with verification steps to allow users to regain access if they forget their password.
+
+### 2 - Journal Management
+
+- **CRUD Operations**: Provide a user-friendly interface for creating, reading, updating, and deleting journal entries, making it easy for users to manage their travel logs.
+- **Photo Uploads**: Integrate a feature for uploading and attaching photos to journal entries, enhancing the visual documentation of travel experiences.
+- **Tags/Categories**: Enable users to add tags or categories to their entries, facilitating easier organization and retrieval of journal content.
+
+### 3 - Search and Accessibility
+
+- **Search and Filter**: Implement robust search and filtering options to allow users to find journal entries by destination, date, or keywords efficiently.
+- **Responsive Design**: Ensure the application is fully responsive, providing a seamless experience across mobile, tablet, and desktop devices.
+
+### 4 - User Experience
+
+- **Clear Purpose**: Design a clear and intuitive landing page to communicate the site’s value and purpose effectively to new visitors.
+- **Error Messages**: Implement user-friendly error messages that provide clear guidance and support for resolving issues encountered during use.
+
+### 5 - Privacy and Sharing
+
+- **Privacy Controls**: Allow users to set the visibility of their journal entries as public or private, giving them control over who can view their content.
+- **Sharing Features**: Provide options for users to share their public entries through social media or direct links, enabling them to connect and inspire others.
+
+
 ### Design Choices
 
 #### Colour Scheme
@@ -109,7 +145,7 @@ The colour scheme has been thoughtfully crafted to evoke a sense of adventure, v
 
 To create a harmonious palette, these colours were used to generate a cohesive colour scheme. You can explore and create your own colour palettes using tools such as [Coolors](https://coolors.co/).
 
-![collours](app/static/RMimages/coolors.png)
+![collours](app/static/RMimages/colours.png)
 
 
 
