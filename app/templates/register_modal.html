@@ -1,11 +1,11 @@
 <form method="POST" action="{{ url_for('main.register') }}">
-    <input type="hidden" name="csrf_token" value="{{ form.csrf_token.current_token }}">
+    {{ form.hidden_tag() }} <!-- Automatically includes CSRF token and any other hidden fields -->
     
     <div class="form-group">
         {{ form.username.label(class_="form-label", for_="usernameInputRegister") }}
         {{ form.username(class_="form-control", id="usernameInputRegister", aria_describedby="usernameHelpRegister", autocomplete="username") }}
         {% for error in form.username.errors %}
-            <span class="text-danger">{{ error }}</span>
+            <span class="text-danger" id="usernameHelpRegister">{{ error }}</span> <!-- Updated with id for aria-describedby -->
         {% endfor %}
     </div>
     
@@ -13,7 +13,7 @@
         {{ form.email.label(class_="form-label", for_="emailInputRegister") }}
         {{ form.email(class_="form-control", id="emailInputRegister", aria_describedby="emailHelpRegister", autocomplete="email") }}
         {% for error in form.email.errors %}
-            <span class="text-danger">{{ error }}</span>
+            <span class="text-danger" id="emailHelpRegister">{{ error }}</span> <!-- Updated with id for aria-describedby -->
         {% endfor %}
     </div>
     

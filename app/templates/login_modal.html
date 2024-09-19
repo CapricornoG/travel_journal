@@ -1,14 +1,14 @@
 <form method="POST" action="{{ url_for('main.login') }}">
-    <input type="hidden" name="csrf_token" value="{{ form.csrf_token.current_token }}">
-    
+    {{ form.hidden_tag() }} <!-- Simplifies CSRF token inclusion -->
+
     <div class="form-group">
         {{ form.email.label(class_="form-label", for_="emailInputLogin") }}
         {{ form.email(class_="form-control", id="emailInputLogin", aria_describedby="emailHelpLogin", autocomplete="email") }}
         {% for error in form.email.errors %}
-            <span class="text-danger">{{ error }}</span>
+            <span class="text-danger" id="emailHelpLogin">{{ error }}</span> <!-- Added id to error span for aria-describedby -->
         {% endfor %}
     </div>
-    
+
     <div class="form-group">
         {{ form.password.label(class_="form-label", for_="passwordInputLogin") }}
         {{ form.password(class_="form-control", id="passwordInputLogin", autocomplete="current-password") }}
@@ -16,11 +16,11 @@
             <span class="text-danger">{{ error }}</span>
         {% endfor %}
     </div>
-    
+
     <div class="form-group form-check">
         {{ form.remember(class_="form-check-input", id="rememberMeLogin") }}
         {{ form.remember.label(class_="form-check-label", for_="rememberMeLogin") }}
     </div>
-    
+
     <button type="submit" class="btn btn-primary">Login</button>
 </form>
